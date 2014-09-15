@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="0dp"
+    android:background="@drawable/repeating_bg">
+
+    <com.aegiswallet.widgets.AegisTextView
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:gravity="center"
+        android:background="@color/transparent"
+        android:textColor="@color/custom_dark_gray"
+        android:textSize="24sp"
+        android:padding="10dp"
+        android:textAllCaps="true"
+        android:text="@string/nfc_prompt_header_string" />
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:background="@color/aegis_white"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:orientation="vertical"
+        android:gravity="center">
+        
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@drawable/nfciniticon"
+            android:padding="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="0dp"
+        android:layout_margin="0dp"
+        android:background="@color/transparent">
+
+        <com.aegiswallet.widgets.AegisButton
+            android:id="@+id/nfc_prompt_cancel_button"
+            android:layout_height="64dp"
+            android:layout_width="fill_parent"
+            android:text="@string/cancel_button_string"
+            android:gravity="center"
+            android:textColor="@color/custom_red"
+            android:background="@color/transparent"
+            android:textSize="24sp"
+            android:textAllCaps="true"
+            />
+
+
+        </LinearLayout>
+
+</LinearLayout>

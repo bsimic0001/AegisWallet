@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="0dp"
+        android:background="@drawable/repeating_bg">
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/import_completed_prompt_header"
+            android:gravity="center"
+            android:textColor="@color/custom_dark_gray"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:textSize="24sp"
+            />
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:background="@color/aegis_white"
+            android:orientation="vertical">
+
+            <com.aegiswallet.widgets.AegisTextView
+                android:id="@+id/import_prompt_completed_filename_message"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/custom_dark_gray"
+                />
+
+            <com.aegiswallet.widgets.AegisTextView
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:text="@string/import_completed_prompt_message"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/custom_dark_gray"/>
+
+            </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="1">
+
+            <com.aegiswallet.widgets.AegisButton
+                android:id="@+id/import_prompt_cancel_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/cancel"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:textSize="24dp"
+                android:textColor="@color/custom_red"
+                android:background="@color/transparent"
+                android:layout_weight=".5"/>
+
+            <com.aegiswallet.widgets.AegisTextView
+                android:layout_height="64dp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/custom_dark_gray"
+                android:gravity="center"
+
+                android:text="|"/>
+
+            <com.aegiswallet.widgets.AegisButton
+                android:id="@+id/import_prompt_ok_button"
+                android:layout_height="64dp"
+                android:layout_width="wrap_content"
+                android:text="@string/button_ok"
+                android:textAllCaps="true"
+                android:textSize="24dp"
+                android:textColor="@color/custom_blue"
+                android:background="@color/transparent"
+                android:layout_weight=".5"/>
+
+            </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

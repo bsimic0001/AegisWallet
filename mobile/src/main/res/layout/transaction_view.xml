@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".MainActivity"
+    tools:ignore="MergeRootFrame"
+    android:orientation="vertical"
+    android:background="@drawable/repeating_bg">
+
+
+    <ListView
+        android:id="@+id/transaction_list_view"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:background="@color/aegis_white"
+        android:divider="@color/lighter_grey"
+        android:dividerHeight="0dp"
+        >
+
+    </ListView>
+
+    <com.aegiswallet.widgets.AegisTextView
+        android:id="@+id/transaction_empty_view"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:text="@string/empty_transaction_list_string"
+        />
+
+</LinearLayout>

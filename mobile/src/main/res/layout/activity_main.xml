@@ -1,0 +1,315 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/repeating_bg">
+
+    <LinearLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_weight=".85">
+
+            <com.aegiswallet.widgets.AegisTextView
+                android:id="@+id/blockchain_status"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/custom_light_gray"
+                android:padding="5dp" />
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:weightSum="1"
+                android:paddingBottom="15dp">
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical|left"
+                    android:layout_weight=".15"
+                    android:paddingLeft="0dp">
+
+                    <ImageButton
+                        android:id="@+id/request_coins_button"
+                        android:layout_height="50dp"
+                        android:layout_width="50dp"
+                        android:background="@drawable/aegis_receive_button"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight=".7">
+
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.aegiswallet.widgets.AegisTextView
+                            android:id="@+id/wallet_balance_in_currency"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="56sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/custom_blue" />
+
+                        <com.aegiswallet.widgets.AegisTextView
+                            android:id="@+id/wallet_balance_currency_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="36sp"
+                            android:text="@string/btc_string"
+                            android:textColor="@color/custom_light_gray" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.aegiswallet.widgets.AegisTextView
+                            android:id="@+id/wallet_balance"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:gravity="center"
+                            android:textSize="26sp"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/custom_blue" />
+
+                        <com.aegiswallet.widgets.AegisTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="26sp"
+                            android:text="@string/btc_string"
+                            android:textColor="@color/custom_light_gray" />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:layout_weight=".15"
+                    android:paddingRight="0dp">
+
+                    <ImageButton
+                        android:id="@+id/send_coins_button"
+                        android:layout_height="50dp"
+                        android:layout_width="50dp"
+                        android:background="@drawable/aegis_send_button"
+                        />
+                </LinearLayout>
+
+
+                <!--
+                <LinearLayout
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".5"
+                                    android:gravity="center">
+
+                                    <FrameLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="bottom"
+                                        android:focusable="true"
+                                        android:foreground="@drawable/dropdown_ic_arrow"
+                                        android:foregroundGravity="bottom|right">
+
+
+                                        <ImageButton
+                                            android:id="@+id/address_image_button"
+                                            android:layout_height="wrap_content"
+                                            android:layout_width="wrap_content"
+                                            android:background="@android:color/transparent" />
+
+                                    </FrameLayout>
+
+                                </LinearLayout>-->
+
+            </LinearLayout>
+
+
+            <!--            <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="fill_parent"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:focusable="true"
+                                android:foreground="@drawable/dropdown_ic_arrow"
+                                android:foregroundGravity="bottom|right">
+
+                                <Button
+                                    android:id="@+id/selected_address"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/custom_light_gray"
+                                    android:gravity="center"
+                                    android:background="@android:color/transparent" />
+
+                            </FrameLayout>
+
+                        </LinearLayout>-->
+
+            <LinearLayout
+                android:id="@+id/watched_balance_view"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:visibility="gone">
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:id="@+id/watch_only_balance"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/guava_color" />
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="@string/btc_string"
+                    android:textColor="@color/guava_color" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+
+                <com.aegiswallet.widgets.AegisButton
+                    android:id="@+id/nfc_encrypt_wallet_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="NFC Encrypt"
+                    android:visibility="gone" />
+
+                <com.aegiswallet.widgets.AegisButton
+                    android:id="@+id/nfc_decrypt_wallet_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="NFC Decrypt"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+
+            <ListView
+                android:id="@+id/pending_transaction_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                android:divider="@color/lighter_grey"
+                android:dividerHeight="0dp"
+                android:background="@android:color/white"
+                android:textColor="@color/custom_dark_gray"
+                android:visibility="gone"></ListView>
+
+            <ListView
+                android:id="@+id/transaction_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                android:divider="@color/lighter_grey"
+                android:dividerHeight="0dp"
+                android:background="@android:color/white"
+                android:textColor="@color/custom_dark_gray"></ListView>
+
+            <com.aegiswallet.widgets.AegisTextView
+                android:id="@+id/transaction_empty_view_main"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+                android:text="@string/empty_transaction_list_string"
+                android:visibility="gone"
+                android:background="@android:color/white"
+                android:textColor="@color/custom_dark_gray"
+                android:padding="5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="?android:attr/buttonBarStyle"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent"
+            android:layout_weight=".15"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <com.aegiswallet.widgets.AegisButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/wallet_main_encryption_button"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+                android:text=""
+                android:textColor="@color/custom_red"
+                android:textAllCaps="true"
+                android:textSize="36sp"
+                android:padding="10dp"
+                android:gravity="center"
+                android:layout_weight="1" />
+
+            <com.aegiswallet.widgets.AegisButton
+                style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/wallet_spec_encryption_button"
+                android:layout_height="fill_parent"
+                android:layout_width="wrap_content"
+                android:text="@string/spec_encrypt_button_text"
+                android:visibility="gone"
+                android:onClick="onClick"
+                android:textColor="@color/custom_red"
+                android:layout_weight=".5" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:background="@drawable/repeating_bg"
+        android:divider="@color/lighter_grey"
+        android:dividerHeight="1dp"
+        />
+
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,195 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:background="@color/aegis_white">
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/repeating_bg"
+        android:layout_weight="35">
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/welcome_to_string"
+            android:textSize="24dp"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+            android:textColor="@color/custom_dark_gray"
+            android:textAllCaps="true"
+            />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:padding="0dp"
+            android:background="@drawable/initpageiconsmaller"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp" />
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.aegiswallet.widgets.AegisTextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/aegis_string"
+                android:textSize="26dp"
+                android:textColor="@color/custom_blue"
+                />
+
+            <com.aegiswallet.widgets.AegisTextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/wallet_string"
+                android:textSize="26dp"
+                android:textColor="@color/custom_light_gray"
+                />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:paddingTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="65"
+        >
+
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/init_enter_password_string"
+            android:textSize="18dp"
+            android:textColor="@color/custom_dark_gray"
+            android:textAllCaps="true"
+            />
+
+        <com.aegiswallet.widgets.AegisEditText
+            android:id="@+id/init_password_field"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/custom_blue"
+            android:background="@drawable/edit_text_custom_bg"
+            android:password="true"
+            android:inputType="textWebPassword"
+            android:padding="10dp"
+            android:hint="@string/init_password_hint"
+            android:textColorHint="@color/custom_light_gray"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            />
+
+        <com.aegiswallet.widgets.AegisEditText
+            android:id="@+id/init_password_confirm_field"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/custom_blue"
+            android:background="@drawable/edit_text_custom_bg"
+            android:password="true"
+            android:inputType="textWebPassword"
+            android:padding="10dp"
+            android:hint="@string/init_password_confirm_hint"
+            android:textColorHint="@color/custom_light_gray"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            />
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:id="@+id/init_password_strength_textbox"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/aegis_white"
+            android:padding="4dp"
+            android:textColor="@color/custom_light_gray"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textAllCaps="true"
+            android:gravity="center"/>
+
+
+        <LinearLayout
+            android:layout_height="50dp"
+            android:layout_width="fill_parent"
+            android:background="@drawable/repeating_bg"
+            android:gravity="center"
+            android:padding="2dp"
+            >
+
+            <com.aegiswallet.widgets.AegisButton
+                android:id="@+id/init_continue_button"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:text="@string/continue_string"
+                android:background="@color/transparent"
+                android:textAllCaps="true"
+                android:textColor="@color/custom_blue"
+                android:textSize="24dp"
+                android:gravity="center"
+
+                />
+
+        </LinearLayout>
+
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="@string/or_string"
+            android:textSize="18dp"
+            android:background="@color/custom_light_blue"
+            android:textColor="@color/aegis_white"
+            android:textAllCaps="true"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:gravity="center"
+            />
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:id="@+id/nfc_info_text_view"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/init_tap_nfc_string"
+            android:textSize="16dp"
+            android:textColor="@color/custom_dark_gray"
+            android:textAllCaps="true"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            />
+
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@drawable/nfciniticon"
+            android:padding="5dp"
+            android:layout_marginTop="2dp"/>
+
+
+        </LinearLayout>
+
+
+
+
+</LinearLayout>

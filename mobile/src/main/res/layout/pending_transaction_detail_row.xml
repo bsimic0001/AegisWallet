@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="0dip"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/pending_transaction_detail_row_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight=".15"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/pending_transaction_send_receive_image"
+                android:layout_height="12dp"
+                android:layout_width="17dp"
+                android:layout_margin="20dp"
+                />
+
+            </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_weight=".7"
+            >
+
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal">
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:id="@+id/pending_transaction_detail_name"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/custom_dark_gray"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal">
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:id="@+id/pending_transaction_detail_amount"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/custom_dark_gray"
+                    android:textSize="20sp"/>
+
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:id="@+id/pending_transaction_amount_btc"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/btc_string"
+                    android:textColor="@color/lighter_grey"
+                    android:textSize="20sp"/>
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:id="@+id/pending_transaction_detail_dayofweek"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/custom_light_gray"
+                    android:textSize="16sp"/>
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text=" | "
+                    android:textColor="@color/custom_light_gray"
+                    android:textSize="16sp"/>
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:id="@+id/pending_transaction_detail_date"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/btc_string"
+                    android:textColor="@color/custom_dark_gray"
+                    android:textSize="16sp"/>
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text=" | "
+                    android:textColor="@color/custom_light_gray"
+                    android:textSize="16sp"/>
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:id="@+id/pending_transaction_detail_time"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/btc_string"
+                    android:textColor="@color/custom_dark_gray"
+                    android:textSize="16sp"/>
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:id="@+id/pending_transaction_detail_timezone"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/btc_string"
+                    android:textColor="@color/custom_light_gray"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:id="@+id/pending_transaction_status"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/custom_red"
+                    android:visibility="gone"/>
+
+                <com.aegiswallet.widgets.AegisTextView
+                    android:id="@+id/pending_transaction_tag_text"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/custom_blue"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    />
+
+                </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_weight=".15"
+            >
+
+            <ImageButton
+                android:id="@+id/pending_transaction_action_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:background="@drawable/ic_action_next_item"
+                android:padding="5dp"
+                />
+
+            </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/transaction_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/lighter_grey" />
+
+</LinearLayout>

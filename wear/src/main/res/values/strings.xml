@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Aegis Wallet</string>
+    <string name="hello_round">AEGIS WALLET WEAR</string>
+    <string name="hello_square">AEGIS WALLET WEAR</string>
+
+    <string name="receive_bitcoin">Receive Bitcoin</string>
+    <string name="to_the_moon">To The Moon</string>
+
+</resources>

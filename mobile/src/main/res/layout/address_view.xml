@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/address_view_container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/repeating_bg"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:layout_weight=".85">
+
+        <ListView
+            android:id="@+id/address_list_view"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:scrollbars="vertical"
+            android:background="@color/aegis_white"
+            android:divider="@color/lighter_grey"
+            android:dividerHeight="1dp"></ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:layout_weight=".15"
+        android:orientation="horizontal">
+
+        <com.aegiswallet.widgets.AegisButton
+
+            android:id="@+id/add_address_button"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:textColor="@color/custom_blue"
+            android:textStyle="bold"
+            android:textSize="36sp"
+            android:padding="10dp"
+            android:textAllCaps="true"
+            android:background="@color/transparent"
+            android:text="@string/add_new_address_button_string" />
+
+    </LinearLayout>
+
+</LinearLayout>

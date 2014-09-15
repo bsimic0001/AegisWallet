@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:background="@color/aegis_white"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="@drawable/nfciniticon"
+        android:padding="10dp"
+        android:layout_marginTop="10dp" />
+
+    <com.aegiswallet.widgets.AegisTextView
+
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/tap_wallet_nfc_tag"
+        android:textSize="18dp"
+        android:textColor="@color/custom_dark_gray"
+        android:textAllCaps="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+
+    <com.aegiswallet.widgets.AegisTextView
+        android:id="@+id/nfc_activity_message"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:padding="20dp"
+        android:textSize="24dp"
+        android:textColor="@color/custom_red"
+        android:visibility="gone"
+        android:gravity="center"
+        />
+
+</LinearLayout>

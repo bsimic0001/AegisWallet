@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/repeating_bg">
+
+    <com.aegiswallet.widgets.AegisTextView
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:gravity="center"
+        android:background="@color/transparent"
+        android:textColor="@color/custom_dark_gray"
+        android:textSize="24sp"
+        android:padding="10dp"
+        android:textAllCaps="true"
+        android:text="@string/choose_encryption_type_string" />
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:background="@color/aegis_white"
+        >
+
+        <com.aegiswallet.widgets.AegisButton
+            android:id="@+id/password_encrypt_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/aegis_white"
+            android:textColor="@color/custom_dark_gray"
+            android:textSize="20sp"
+            android:text="@string/encryption_type_password" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/lighter_grey" />
+
+        <com.aegiswallet.widgets.AegisButton
+            android:id="@+id/nfc_encrypt_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="0dp"
+            android:textSize="20sp"
+            android:textColor="@color/custom_dark_gray"
+            android:background="@color/aegis_white"
+            android:text="@string/encryption_type_nfc"/>
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/custom_blue"
+            android:background="@color/aegis_white"
+            android:gravity="center"
+            android:text="@string/string_more_secure"/>
+
+        </LinearLayout>
+
+    <com.aegiswallet.widgets.AegisButton
+        android:id="@+id/encryption_prompt_cancel_button"
+        android:layout_height="64dp"
+        android:layout_width="fill_parent"
+        android:text="@string/cancel_button_string"
+        android:gravity="center"
+        android:textColor="@color/custom_red"
+        android:background="@color/transparent"
+        android:textSize="24sp"
+        android:textAllCaps="true"
+        />
+
+
+</LinearLayout>

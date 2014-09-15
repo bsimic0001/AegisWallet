@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dip" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="3dp">
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:id="@+id/address_string"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:textColor="@color/custom_dark_gray"
+            />
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <com.aegiswallet.widgets.AegisButton
+                android:id="@+id/copy_to_clipboard_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:drawableLeft="@drawable/ic_action_copy"
+                android:text="@string/copy_address_button"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:background="@color/transparent"
+                android:textColor="@color/custom_dark_gray"
+                />
+
+            <com.aegiswallet.widgets.AegisTextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="\u0020|\u0020"
+                android:textColor="@color/custom_light_gray"/>
+
+            <com.aegiswallet.widgets.AegisButton
+                android:id="@+id/explore_address_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:drawableLeft="@drawable/info_icon"
+                android:text="@string/explore_address_button"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:background="@color/transparent"
+                android:textColor="@color/custom_dark_gray"
+                />
+
+            <com.aegiswallet.widgets.AegisTextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="\u0020|\u0020"
+                android:textColor="@color/custom_light_gray"/>
+
+
+            <com.aegiswallet.widgets.AegisButton
+                android:id="@+id/set_default_address_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@color/custom_dark_gray"
+                android:background="@color/aegis_white"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/set_default_address_button_string"/>
+
+            <com.aegiswallet.widgets.AegisButton
+                android:id="@+id/unwatch_address_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/unwatch_address_button_string"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/custom_dark_gray"
+                android:background="@color/aegis_white"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

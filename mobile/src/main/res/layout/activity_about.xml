@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:background="@color/aegis_white">
+
+    <com.aegiswallet.widgets.AegisTextView
+        android:id="@+id/about_textview"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:minLines="5"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:padding="5dp"
+        android:text="@string/about_text"
+        android:textColor="@color/custom_dark_gray"
+        android:visibility="visible"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/lighter_grey" />
+
+    <com.aegiswallet.widgets.AegisButton
+        android:id="@+id/settings_faq_button"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="@string/string_faqs"
+        android:padding="10dp"
+        android:textColor="@color/custom_dark_gray"
+        android:textSize="18sp"
+        android:textAllCaps="true"
+        android:gravity="left"
+        android:background="@color/transparent"
+        android:drawableRight="@drawable/right_arrow"
+        android:onClick="toggleLegal"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/lighter_grey" />
+
+    <com.aegiswallet.widgets.AegisButton
+        android:id="@+id/settings_license_button"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="@string/settings_license_legal"
+        android:padding="10dp"
+        android:textColor="@color/custom_dark_gray"
+        android:textSize="18sp"
+        android:textAllCaps="true"
+        android:gravity="left"
+        android:background="@color/transparent"
+        android:drawableRight="@drawable/right_arrow"
+        android:onClick="toggleLegal"
+        />
+
+    <com.aegiswallet.widgets.AegisTextView
+        android:id="@+id/legal_textview"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:minLines="5"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:padding="5dp"
+        android:text="@string/license_text"
+        android:textColor="@color/custom_dark_gray"
+        android:visibility="gone"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/lighter_grey" />
+
+    <com.aegiswallet.widgets.AegisButton
+        android:id="@+id/settings_donate_button"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="@string/settings_donate"
+        android:padding="10dp"
+        android:textColor="@color/custom_dark_gray"
+        android:textSize="18sp"
+        android:textAllCaps="true"
+        android:gravity="left"
+        android:background="@color/transparent"
+        android:drawableRight="@drawable/right_arrow"
+        android:onClick="initDonation"
+
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/lighter_grey" />
+
+
+
+
+
+</LinearLayout>

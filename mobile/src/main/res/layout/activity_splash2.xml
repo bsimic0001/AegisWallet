@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/repeating_bg"
+    android:orientation="vertical"
+    android:weightSum="1"
+    >
+
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/aegis_white"
+        android:layout_marginTop="50dp"
+        android:layout_weight=".9"
+        >
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="30dp"
+            android:textColor="@color/custom_blue"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true"
+            android:text="@string/aegis_wallet_splash_top"
+            android:textAllCaps="true"
+            />
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/initpageicon"
+            />
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="24dp"
+            android:textColor="@color/custom_blue"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true"
+            android:text="@string/aegis_wallet_splash_bottom"
+            />
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="20dp"
+            android:textColor="@color/custom_blue"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true"
+            android:text="AegisWallet.com"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="10dp"
+        android:layout_weight=".1"
+        android:gravity="center"
+        android:weightSum="1"
+        >
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:src="@drawable/bsp_logo_wide"
+            android:layout_weight=".5"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:src="@drawable/spec_logo"
+            android:layout_weight=".35"/>
+
+    </LinearLayout>
+
+</LinearLayout>

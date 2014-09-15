@@ -1,0 +1,71 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
+        <!-- Customize your theme here. -->
+        <item name="circularProgressBarStyle">@style/CircularProgressBar</item>
+    </style>
+
+    <color name="custom_red">#C72C1D</color>
+    <color name="custom_blue">#1B7290</color>
+    <color name="custom_dark_gray">#2B2B2B</color>
+    <color name="custom_light_gray">#818181</color>
+    <color name="custom_light_blue">#279CC2</color>
+
+    <style name="button_text">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="NormalButton" parent="button_text">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:minWidth">165dp</item>
+        <item name="android:background">@drawable/btn_shape_background_dark_grey</item>
+        <item name="android:textColor">@color/aegis_white</item>
+    </style>
+
+    <style name="aegis_btn" parent="NormalButton">
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingRight">30dp</item>
+    </style>
+    <style name="aegis_floaty_btn" parent="NormalButton">
+        <item name="android:background">@drawable/btn_background_selector_floaty</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+    </style>
+    <style name="aegis_floaty_edit_text">
+        <item name="android:background">@drawable/text_view_shape_background_grey</item>
+        <item name="android:textColor">@drawable/edit_text_selector_floaty</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
+
+    <style name="CircularProgressBar">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="stroke_width">5dp</item>
+        <item name="progress" format="float">0.1</item>
+        <item name="progress_color">@color/custom_green</item>
+        <item name="progress_background_color">@color/aegis_white</item>
+        <item name="marker_visible">false</item>
+        <item name="thumb_visible">false</item>
+    </style>
+
+    <style name="CircularProgressBarLight">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="stroke_width">5dp</item>
+        <item name="progress" format="float">0.1</item>
+        <item name="progress_color">@color/custom_green</item>
+        <item name="progress_background_color">@color/aegis_white</item>
+        <item name="marker_visible">false</item>
+        <item name="thumb_visible">false</item>
+    </style>
+
+</resources>

@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:ignore="MergeRootFrame"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="@drawable/repeating_bg">
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@color/aegis_white">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_margin="15dp">
+
+            <com.aegiswallet.widgets.AegisButton
+                android:id="@+id/scan_qr_code_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:drawableTop="@drawable/qricon"
+                android:text="@string/scan_qr_code_button"
+                android:textAllCaps="true"
+                android:textColor="@color/custom_dark_gray"
+                android:background="@color/aegis_white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:weightSum="1">
+
+                <com.aegiswallet.widgets.AegisEditText
+                    android:id="@+id/private_key_textbox"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/private_key_textbox"
+                    android:textColorHint="@color/lighter_grey"
+                    android:textColor="@color/custom_dark_gray"
+                    android:background="@drawable/edit_text_custom_bg"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:maxLength="100"
+                    android:padding="5dp">
+
+
+                    <requestFocus />
+                </com.aegiswallet.widgets.AegisEditText>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:weightSum="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="20dp">
+
+            <View
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_weight=".1" />
+
+            <com.aegiswallet.widgets.AegisButton
+                android:id="@+id/confirm_add_private_key"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:text="@string/confirm_add_key_button_text"
+                android:layout_weight=".8"
+                android:background="@drawable/rounded_corners_bg"
+                android:textColor="@color/aegis_white"
+                android:textAllCaps="true"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_weight=".1" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

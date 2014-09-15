@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="HoloCircularProgressBar">
+        <attr name="stroke_width" format="dimension" />
+        <attr name="progress" format="float"></attr>
+        <attr name="marker_progress" format="float"></attr>
+        <attr name="progress_color" format="color"></attr>
+        <attr name="progress_background_color" format="color"></attr>
+        <attr name="thumb_visible" format="boolean"></attr>
+        <attr name="marker_visible" format="boolean"></attr>
+        <attr name="android:gravity"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="Theme">
+        <attr name="circularProgressBarStyle" format="reference"></attr>
+    </declare-styleable>
+
+    <attr name="scsFont" format="enum">
+        <enum name="black" value="0"/>
+        <enum name="black_italic" value="1"/>
+        <enum name="bold" value="2"/>
+        <enum name="bold_italic" value="3"/>
+        <enum name="book" value="4"/>
+        <enum name="light" value="5"/>
+        <enum name="light_italic" value="6"/>
+        <enum name="medium" value="7"/>
+        <enum name="medium_italic" value="8"/>
+        <enum name="thin" value="9"/>
+        <enum name="icon" value="10"/>
+    </attr>
+    <declare-styleable name="AegisButton">
+        <attr name="scsPreventRepeatClick" format="boolean"/>
+        <attr name="scsFont"/>
+    </declare-styleable>
+    <declare-styleable name="AegisTextView">
+        <attr name="scsFont"/>
+    </declare-styleable>
+    <declare-styleable name="AegisEditText">
+        <attr name="scsFont"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Aegis Wallet</string>
+
+    <string name="welcome_to_string">Welcome to</string>
+    <string name="aegis_string">Aegis</string>
+    <string name="wallet_string">Wallet</string>
+    <string name="bitcoin_string">Bitcoin</string>
+    <string name="init_enter_password_string">Enter a strong password</string>
+    <string name="or_string">Or</string>
+    <string name="init_tap_nfc_string">Tap NFC tag to device</string>
+    <string name="tap_wallet_nfc_tag">Tap Wallet NFC tag to device</string>
+    <string name="continue_string">Continue</string>
+    <string name="app_setup_string">Please wait...</string>
+    <string name="init_password_hint">Password</string>
+    <string name="init_password_wallet_hint">Wallet Password</string>
+    <string name="init_password_confirm_hint">Confirm Password</string>
+
+    <string name="invalid_password_string">Invalid Password</string>
+
+    <string name="request_activity_label">Request Bitcoin</string>
+    <string name="send_activity_label">Send Bitcoin</string>
+    <string name="transactions_activity_label">Transactions</string>
+    <string name="currencies_activity_label">Currencies</string>
+    <string name="addresses_activity_label">Your Addresses</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="send_btc_button_string">Send</string>
+    <string name="request_btc_button_string">Request</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string name="amount_to_request_text_string">Amount to Request</string>
+    <string name="request_subject">Aegis Wallet Bitcoin Request</string>
+
+    <string name="amount_to_send_text_string">Amount to Send</string>
+    <string name="to_address_text_string">To Address or Contact Mobile Number</string>
+    <string name="scan_qr_code_button">Scan QR Code</string>
+    <string name="send_button_text_string">Send!</string>
+    <string name="tag_hint">Add Note/Tag</string>
+
+
+    <string name="drawer_wallet_encrypt">Encrypt Wallet</string>
+    <string name="drawer_wallet_decrypt">Decrypt Wallet</string>
+
+
+    <string name="wallet_not_encrypted_button_string">Encrypt</string>
+    <string name="wallet_encrypted_button_string">Wallet Encrypted</string>
+
+    <string name="decrypt_dialog_spinner_text">Decrypting Wallet...</string>
+    <string name="encrypt_dialog_spinner_text">Encrypting Wallet...</string>
+    <string name="adding_address_spinner_text">Adding New Address...</string>
+    <string name="send_btc_spinner_text">Sending your Bitcoins!</string>
+    <string name="backup_spinner_text">Backup in Progress</string>
+
+    <string name="okay_button_string">OK</string>
+    <string name="cancel_button_string">Cancel</string>
+
+    <string name="add_new_address_button_string">Add New Address</string>
+    <string name="set_default_address_button_string">Set As Default</string>
+    <string name="unwatch_address_button_string">Unwatch Address</string>
+
+    <string name="spec_encrypt_button_text">Spec Encrypt</string>
+
+    <string name="empty_transaction_list_string">No transactions have been sent or received...</string>
+    <string name="address_copied_to_clipboard_string">Address copied to clipboard!</string>
+
+    <string name="no_internet_connection_available_string">No Internet Connection Detected</string>
+    <string name="send_amount_less_than_minimum_amount">Invalid amount or amount too small</string>
+    <string name="amount_cannot_be_empty">Amount cannot be empty!</string>
+
+    <string-array name="drawer_items">
+        <item>Transactions</item>
+        <item>Addresses</item>
+        <item>Set Currency</item>
+        <item>PlaceHolder</item>
+        <item>Backup Wallet</item>
+        <item>Settings</item>
+    </string-array>
+
+    <string name="start_scan">Start Scan</string>
+    <string name="msg_default_time">Time</string>
+    <string name="msg_default_type">Type</string>
+    <string name="msg_default_format">Format</string>
+    <string name="msg_default_status"></string>
+    <string name="cancel">Cancel</string>
+    <string name="msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
+    <string name="button_ok">OK</string>
+
+    <string name="preferences_actions_title">When a barcode is found\u2026</string>
+    <string name="preferences_bulk_mode_summary">Scan and save many barcodes continuously</string>
+    <string name="preferences_bulk_mode_title">Bulk scan mode</string>
+    <string name="preferences_copy_to_clipboard_title">Copy to clipboard</string>
+    <string name="preferences_custom_product_search_summary" formatted="false">Substitutions: %s = contents, %f = format, %t = type</string>
+    <string name="preferences_custom_product_search_title">Custom search URL</string>
+    <string name="preferences_decode_1D_title">1D barcodes</string>
+    <string name="preferences_decode_Data_Matrix_title">Data Matrix</string>
+    <string name="preferences_decode_QR_title">QR Codes</string>
+    <string name="preferences_front_light_summary">Improves scanning in low light on some phones, but may cause glare. Does not work on all phones.</string>
+    <string name="preferences_front_light_title">Use front light</string>
+    <string name="preferences_general_title">General settings</string>
+    <string name="preferences_name">Settings</string>
+    <string name="preferences_play_beep_title">Beep</string>
+    <string name="preferences_remember_duplicates_summary">Store multiple scans of the same barcode in History</string>
+    <string name="preferences_remember_duplicates_title">Remember duplicates</string>
+    <string name="preferences_reverse_image_summary">Enable on devices with a front camera only</string>
+    <string name="preferences_reverse_image_title">Reversed camera image</string>
+    <string name="preferences_result_title">Result settings</string>
+    <string name="preferences_scanning_title">When scanning for barcodes, decode\u2026</string>
+    <string name="preferences_search_country">Search country</string>
+    <string name="preferences_supplemental_summary"></string>
+    <string name="preferences_supplemental_title">Retrieve more info</string>
+    <string name="preferences_vibrate_title">Vibrate</string>
+    <string name="result_address_book"></string>
+    <string name="result_calendar"></string>
+    <string name="result_email_address"></string>
+    <string name="result_geo"></string>
+    <string name="result_isbn"></string>
+    <string name="result_product"></string>
+    <string name="result_sms"></string>
+    <string name="result_tel"></string>
+    <string name="result_text"></string>
+    <string name="result_uri"></string>
+    <string name="result_wifi"></string>
+
+    <string name="button_add_calendar">Add to calendar</string>
+    <string name="button_add_contact">Add contact</string>
+    <string name="button_back">Back</string>
+    <string name="button_book_search">Book Search</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_clipboard_empty">Clipboard empty</string>
+    <string name="button_custom_product_search">Custom search</string>
+    <string name="button_dial">Dial number</string>
+    <string name="button_done">Done</string>
+    <string name="button_email">Send email</string>
+    <string name="button_get_directions">Get directions</string>
+    <string name="button_google_shopper">Google Shopper</string>
+    <string name="button_mms">Send MMS</string>
+    <string name="button_open_browser">Open browser</string>
+    <string name="button_product_search">Product Search</string>
+    <string name="button_search_book_contents">Search contents</string>
+    <string name="button_share_app">Application</string>
+    <string name="button_share_bookmark">Bookmark</string>
+    <string name="button_share_by_email">Share via email</string>
+    <string name="button_share_by_sms">Share via SMS</string>
+    <string name="button_share_clipboard">Clipboard</string>
+    <string name="button_share_contact">Contact</string>
+    <string name="button_show_map">Show map</string>
+    <string name="button_sms">Send SMS</string>
+    <string name="button_web_search">Web search</string>
+    <string name="button_wifi">Connect to Network</string>
+
+    <string name="msg_share_subject_line">Here are the contents of a barcode I scanned</string>
+    <string name="msg_default_mms_subject">Hi</string>
+    <string name="msg_intent_failed">Sorry, the requested application could not be launched. The barcode contents may be invalid.</string>
+
+    <string name="plain_btc_string">BTC</string>
+    <string name="btc_string">&#160;BTC</string>
+    <string name="mbtc_string">&#160;mBTC</string>
+    <string name="send_btc_header">SEND BITCOIN</string>
+    <string name="your_balance_string">YOUR BALANCE:</string>
+    <string name="avilable_balance_string">AVAILABLE BALANCE:</string>
+    <string name="request_qrcode_instruction">HAVE PAYER SCAN THE QR CODE ABOVE</string>
+    <string name="copy_address_button">copy</string>
+    <string name="explore_address_button">Explore</string>
+    <string name="blank">\u0020</string>
+    <string name="current_default_string">Current Default</string>
+
+    <string name="choose_encryption_type_string">Choose Encryption Type</string>
+    <string name="encryption_type_password">Password</string>
+    <string name="encryption_type_nfc">NFC</string>
+    <string name="string_more_secure">(more secure)</string>
+    <string name="password_prompt_header_string">Enter Wallet Password</string>
+    <string name="password_prompt_checkbox_string">Show Password</string>
+
+    <string name="nfc_prompt_header_string">Tap NFC Tag to Device</string>
+
+    <string name="transaction_not_broadcasted">Transaction broadcast in progress...</string>
+    <string name="transaction_unconfirmed_not_locked">Transaction awaiting confirmations and not yet spendable.</string>
+    <string name="transaction_unconfirmed_locked">Transaction awaiting confirmations and not trusted.</string>
+    <string name="transaction_dead">Transaction dead or reversed by sender.</string>
+
+    <string name="wallet_menu_restore_backup">Restore Backup</string>
+    <string name="send_backup_to_email_header">CHOOSE BACKUP DESTINATION</string>
+
+    <string name="file_selector_header">Select Backup File</string>
+    <string name="file_selector_password_hint">Password to decrypt file</string>
+
+    <string name="import_wallet_spinner_text">Importing Wallet...</string>
+    <string name="adding_keys_to_wallet_spinner_text">Adding keys to wallet...</string>
+
+    <string name="import_completed_prompt_header">Import Successful</string>
+    <string name="import_completed_start">Imported file - </string>
+    <string name="import_completed_prompt_message">Press OK to synchronize with the network. This will restart the application in approximately 10 seconds.</string>
+
+    <string name="synchronizing_network">Syncing with Bitcoin network.</string>
+    <string name="sync_stalled">Sync with Bitcoin network stalled.</string>
+    <string name="sync_completed">Network sync complete, wallet is ready.</string>
+    <string name="sync_days_behind">days behind...</string>
+    <string name="received_string">Received</string>
+    <string name="sent_string">Sent</string>
+
+    <string name="password_strength_string">(Password Strength)</string>
+
+    <string name="password_very_weak">Password Strength - Very Weak</string>
+    <string name="password_weak">Password Strength - Weak</string>
+    <string name="password_medium">Password Strength - Medium</string>
+    <string name="password_strong">Password Strength - Strong</string>
+    <string name="password_very_strong">Password Strength - Very Strong</string>
+
+    <string name="invalid_address_string">Invalid Address or Mobile Number!</string>
+    <string name="invalid_amount_string">Insufficient Bitcoins!</string>
+
+    <string name="settings_string">Settings</string>
+    <string name="settings_about">About</string>
+    <string name="settings_reset_blockchain">Reset Blockchain</string>
+    <string name="settings_change_wallet_password">Change Wallet Password</string>
+    <string name="settings_switch_to_password_button_text">Switch to Password Encryption\r\n(Less Secure)</string>
+    <string name="settings_switch_to_nfc_button_text">Switch to NFC Encryption\r\n(More Secure)</string>
+    <string name="settings_copy_nfc_tag_button_text">Create NFC Tag Copy</string>
+
+    <string name="settings_import_backup_wallet">Restore Wallet Backup</string>
+    <string name="settings_import_private_key">Import Paper Wallet</string>
+    <string name="settings_donate">Donate</string>
+    <string name="settings_license_legal">License and Legal</string>
+    <string name="settings_donate_address">1QBkmSSnxNPess4vey3d8h25CTnj95Be7n</string>
+
+    <string name="about_text">The mission of the Aegis Bitcoin Wallet is simple.
+        It is to make sure that in the event your Android device is lost or stolen, you can have peace of mind that
+        your Bitcoins are safe. \r\n\r\nFind out more at <a href="https://aegiswallet.com">https://aegiswallet.com</a>
+        \r\n\r\nThis software was created by the efforts of the <a href="https://bitcoinsecurityproject.org">Bitcoin Security Project</a> and <a href="http://specularx.co/">specularX</a>.
+    </string>
+    <string name="license_text">Aegis Bitcoin Wallet - The secure Bitcoin wallet for Android\r\nCopyright (C) 2014  Bojan Simic and specularX.co, Designed by Reuven Yamrom from <a href="http://www.orientmedia.net/">Orientmedia</a>\r\n
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.\r\n\r\n
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.\r\n\r\n
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses</string>
+
+    <string name="string_faqs">FAQs &amp; Privacy Policy</string>
+    <string name="faq_link">http://www.aegiswallet.com/faqs/</string>
+
+    <string name="settings_reset_chain_header">Reset blockchain?</string>
+    <string name="settings_reset_chain_message">This will restart the application in 10 seconds. Blockchain synchronization can take several minutes afterwards depending on your internet connection.</string>
+
+    <string name="settings_change_password_header">Change Wallet Password</string>
+    <string name="settings_switch_to_password_header">Provide a Strong Password</string>
+    <string name="settings_current_password_hint">Current Wallet Password</string>
+    <string name="settings_current_new_password_hint">Enter new password</string>
+    <string name="settings_current_new_confirm_password_hint">Confirm new password</string>
+    <string name="settings_change_password_mismatch">Passwords do not match!</string>
+    <string name="settings_change_password_wrong">Incorrect Current Password</string>
+
+
+    <string name="settings_change_password_dialog_text">Changing your password...</string>
+    <string name="settings_password_changed">Password Changed!</string>
+
+    <string name="invalid_password_strength">Password not strong enough. Make sure it is at least 8 characters and you use upper case, lower case, digits, and special characters.</string>
+    <string name="password_guessable">Choose a password that is not easily guessable</string>
+    <string name="nfc_not_available_string">NFC Not Supported</string>
+    <string name="nfc_is_off">Enable NFC and tap tag</string>
+
+    <string name="share_string">Share</string>
+    <string name="copy_string">Copy</string>
+    <string name="request_copied_to_clipboard_string">Request copied to clipboard!</string>
+    <string name="request_str_part_1">There is a request for</string>
+    <string name="request_str_part_2">to be sent to the Bitcoin address</string>
+
+    <string name="file_selector_nfc_notification">This file was encrypted using NFC. Press OK to continue.</string>
+
+    <string name="nfc_activity_message">Scan the NFC tag that was used to encrypt the file:</string>
+    <string name="nfc_activity_message_main">Scan the NFC tag for this wallet...</string>
+
+
+    <string name="nfc_tag_invalid_string">Invalid NFC Tag</string>
+
+    <string name="nfc_tag_copy_invalid_string">Invalid NFC Tag or Incorrect Tag Scanned</string>
+    <string name="nfc_tag_copy_successful">NFC Tag Has Been Written</string>
+    <string name="nfc_tag_copy_steptwo_message">Tap NFC Tag to Copy Key To</string>
+
+
+    <string name="nfc_error_tag_too_small">Error - Tag too small...</string>
+    <string name="nfc_error_tag_read_only">Error - Tag is read only...</string>
+    <string name="nfc_error_tag_cant_connect">Error - Cannot connect to tag...</string>
+    <string name="nfc_error_tag_cant_format">Error - Could not format tag...</string>
+    <string name="nfc_error_tag_not_supported">Error - Tag not supported. Your tag should support NDEF.</string>
+    <string name="nfc_error_tag_write_exception">Error occured writing tag...</string>
+
+    <string name="email_import_header">Import Backup File</string>
+    <string name="email_import_password_instruction">We noticed this file was encrypted using a password.\nPlease enter it below.</string>
+    <string name="email_import_nfc_instruction">We noticed this file was encrypted using an NFC tag.\nPlease tap the tag to your device.</string>
+
+    <string name="email_import_filenfc_walletpass">We noticed this file was encrypted using an NFC tag.\nEnter your wallet password and tap the tag to your device.</string>
+    <string name="email_import_filepass_walletnfc">We noticed this file was encrypted using a password.\nEnter it below and then scan your wallet NFC tag.</string>
+    <string name="email_import_filepass_walletpass">We noticed this file was encrypted using a password.\nEnter it in the field below and your wallet password in the one underneath.</string>
+
+    <string name="email_import_invalid_file">The file provided is invalid...</string>
+    <string name="email_import_invalid_file_password">Invalid password for backup file</string>
+    <string name="email_import_invalid_wallet_password">Invalid wallet password</string>
+
+    <string name="backup_reminder_header_text">Backup Reminder</string>
+    <string name="backup_reminder_text">We recommend that you do regular backups. Would you like to do one now?</string>
+    <string name="backup_reminder_new_address">We noticed you have added addresses since your last backup. We strongly recommend doing backups when addresses are added to your wallet. Would you like to do one now?</string>
+
+    <string name="change_currency_prompt_header">Change Default Currency</string>
+    <string name="change_currency_prompt_message">Would you like to change your wallet default currency to</string>
+    <string name="change_currency_toast">Default currency changed to</string>
+
+    <string name="aegis_wallet_splash_top">Aegis Bitcoin Wallet</string>
+    <string name="aegis_wallet_splash_bottom">Ultra Secure, Fast &amp; Reliable</string>
+
+    <string name="connected_to_string">Connected to</string>
+    <string name="peers_string">peers</string>
+    <string name="choose_file_string">Please select a file</string>
+
+    <string name="wallet_backup_text">This email contains your Aegis Bitcoin Wallet backup.
+        Please keep this file safe and do not forget the password used to encrypt it. If you used an NFC tag, keep it safe.
+        You can always import this wallet into an Aegis Wallet if you need to.</string>
+
+    <string name="private_key_textbox">Private Key</string>
+    <string name="confirm_add_key_button_text">Add To Wallet</string>
+    <string name="import_paper_wallet_header">Import Paper Wallet</string>
+    <string name="invalid_private_key">Invalid private key</string>
+    <string name="valid_private_key">Successfully scanned private key</string>
+    <string name="wallet_already_has_key">Your wallet already has this key</string>
+
+    <string name="wallet_watch_address">Watch Address</string>
+    <string name="already_watching_address">Your wallet already has this address</string>
+    <string name="add_watch_address_header">Add Watch Address</string>
+    <string name="invalid_watch_address">Invalid Address</string>
+    <string name="add_watch_address_button">Add Watch Address</string>
+
+    <string name="watch_address_removed_success">Watch Address Removed</string>
+    <string name="watch_address_not_removed">Removing Watch Address Failed</string>
+
+    <string name="watched_balance_string">Watched Balance -</string>
+    <string name="watch_addess_added_text">Watch Address Added</string>
+    <string name="watch_address_added_message">Press OK to synchronize with the network. Please remember that only transaction that have been received after June 1, 2014 will be displayed in the transactions list.</string>
+
+    <string name="please_wait_string">Please Wait...</string>
+
+    <string name="nfc_off_string">NFC OFF</string>
+    <string name="nfc_unavailable">NFC NOT AVAILABLE</string>
+
+    <string-array name="default_tags">
+        <item>Movies</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+        <item>Breakfast</item>
+        <item>Coffee</item>
+        <item>Electronics</item>
+        <item>Computer</item>
+        <item>Groceries</item>
+        <item>Bus Ticket</item>
+        <item>Air Ticket</item>
+        <item>Gas/Fuel</item>
+        <item>Clothing</item>
+        <item>Drinks</item>
+        <item>TV</item>
+        <item>Gambling</item>
+        <item>Vacation</item>
+        <item>Going Out</item>
+        <item>Tickets</item>
+    </string-array>
+
+    <string name="tag_pref_filename">com.aegiswallet.tags</string>
+    <string name="sms_transaction_filename">com.aegiswallet.smstxns</string>
+
+    <string name="tag_written_string">Tag Written</string>
+    <string name="tag_cant_connect_nfc_adapter_string">Cannot connect NFC Adapter</string>
+    <string name="tag_tag_is_read_only_string">This tag is read only.</string>
+    <string name="tag_too_small_string">This tag is too small</string>
+    <string name="tag_error_formatting_tag_string">Error formatting tag. Try again.</string>
+    <string name="tag_nfc_write_exception_string">Exception writing to tag. Try again.</string>
+    <string name="tag_formatted_string">Tag Formatted</string>
+
+    <string name="sms_init_header">SMS Transaction</string>
+    <string name="sms_init_message">You are about to initiate an SMS transaction. You will be asked to confirm once the recipient replies with their Bitcoin address (via SMS).</string>
+    <string name="sms_init_continue_button">Continue</string>
+    <string name="sms_send_message">You got Bitcoin! Reply to this message with your Bitcoin address to receive</string>
+    <string name="sms_pendngtx">You already have a pending transaction for</string>
+    <string name="sms_sent_message">A text message has been sent to %1$s. Once they reply with a valid Bitcoin address, Aegis Wallet will prompt you to authorize the transaction.</string>
+    <string name="sms_received_message">%1$s (%2$s) has responded to your SMS transaction with the Bitcoin address below. Press press the Send button below to confirm.</string>
+    <string name="sms_status_sent">Awaiting SMS Response</string>
+    <string name="sms_status_rec">SMS Received. Needs Confirmation</string>
+    <string name="sms_delete_button">CANCEL TRANSACTION</string>
+    <string name="sms_confirm_button">CONFIRM TRANSACTION</string>
+
+    <string name="close_button_string">CLOSE</string>
+    <string name="sms_transaction_cancelled">SMS Transaction Cancelled</string>
+</resources>

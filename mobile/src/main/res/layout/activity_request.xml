@@ -1,0 +1,213 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:ignore="MergeRootFrame"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="@drawable/repeating_bg">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:gravity="center">
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/your_balance_string"
+            android:textColor="@color/custom_dark_gray"
+            android:textSize="18sp" />
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:id="@+id/balance_on_send_view"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/custom_blue"
+
+            />
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/btc_string"
+            android:textColor="@color/custom_dark_gray"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="5dp">
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:id="@+id/balance_in_currency_send_view"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/custom_blue" />
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:id="@+id/send_balance_currency_type"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textColor="@color/custom_dark_gray"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@color/aegis_white">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <com.aegiswallet.widgets.AegisEditText
+                    android:id="@+id/sent_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/amount_to_request_text_string"
+                    android:textColorHint="@color/lighter_grey"
+                    android:inputType="numberDecimal"
+                    android:background="@drawable/edit_text_custom_bg"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/custom_dark_gray"
+                    android:maxLength="12"
+                    android:padding="5dp"
+                    android:layout_weight=".8" />
+
+                <FrameLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:focusable="true"
+                    android:foreground="@drawable/dropdown_ic_arrow"
+                    android:foregroundGravity="bottom|right"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_weight=".2"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="25dp">
+
+                    <Spinner
+                        android:id="@+id/currency_spinner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@color/aegis_white"
+                        android:spinnerMode="dropdown" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <com.aegiswallet.widgets.AegisTextView
+                android:id="@+id/send_action_currency_value"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:textColor="@color/custom_dark_gray"
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/request_coins_qrcode"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/request_qrcode_instruction"
+                android:textAllCaps="true"
+                android:padding="7dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="1"
+        android:background="@color/aegis_white">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/request_share_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:drawableTop="@drawable/share_image"
+                android:text="@string/share_string"
+                android:textAllCaps="true"
+                android:textSize="14dp"
+                android:textColor="@color/custom_dark_gray"
+                android:background="@color/transparent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/request_copy_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:drawableTop="@drawable/copy_image"
+                android:text="@string/copy_string"
+                android:textAllCaps="true"
+                android:textSize="14dp"
+                android:textColor="@color/custom_dark_gray"
+                android:background="@color/transparent" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:layout_margin="0dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="0dp"
+        android:background="@drawable/repeating_bg">
+
+        <com.aegiswallet.widgets.AegisTextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/send_backup_to_email_header"
+            android:gravity="center"
+            android:textColor="@color/custom_dark_gray"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:textSize="24sp"
+            />
+
+        <ListView
+            android:id="@+id/custom_chooser_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:background="@color/aegis_white"
+            android:divider="@color/custom_light_gray"
+            android:dividerHeight="1dp"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"></ListView>
+    </LinearLayout>
+
+</LinearLayout>

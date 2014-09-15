@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/aegis_white"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/custom_spinner_image"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:visibility="gone"/>
+
+    <com.aegiswallet.widgets.HoloCircularProgressBar
+        android:id="@+id/spinner_progress_bar"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"/>
+
+    <com.aegiswallet.widgets.AegisTextView
+        android:id="@+id/custom_spinner_text"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/custom_blue"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+
+        />
+
+</LinearLayout>
