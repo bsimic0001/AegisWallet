@@ -27,6 +27,23 @@
             </intent-filter>
         </activity>
 
+
+        <activity
+            android:name=".activities.WatchFaceActivity"
+            android:allowEmbedded="true"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+            android:label="HyprKey">
+
+            <meta-data
+                android:name="com.google.android.clockwork.home.preview"
+                android:resource="@drawable/watchface" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.google.android.clockwork.home.category.HOME_BACKGROUND" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".activities.ReceiveBitcoin" android:label="@string/receive_bitcoin"></activity>
         <activity android:name=".activities.MyActivity$ToTheMoonActivity" android:label="@string/to_the_moon"></activity>
 

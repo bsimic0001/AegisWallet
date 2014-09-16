@@ -56,7 +56,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -410,6 +409,7 @@ public class WalletUtils {
         return result;
     }
 
+
     public static BigDecimal getExchangeRate(Context context, SharedPreferences prefs) {
         File file = context.getApplicationContext().getFileStreamPath(Constants.BLOCKCHAIN_CURRENCY_FILE_NAME);
         if (file.exists()) {
@@ -422,6 +422,27 @@ public class WalletUtils {
 
                     BigDecimal bigDecimal = BigDecimal.valueOf(doubleValue);
                     return bigDecimal;
+                }
+            } catch (JSONException e) {
+                Log.e("Wallet Utils", "JSON Exception " + e.getMessage());
+            }
+        }
+
+        return null;
+    }
+
+    public static String getExchangeRateWithSymbol(Context context, SharedPreferences prefs) {
+        File file = context.getApplicationContext().getFileStreamPath(Constants.BLOCKCHAIN_CURRENCY_FILE_NAME);
+        if (file.exists()) {
+            JSONObject jsonObject = BasicUtils.parseJSONData(context, Constants.BLOCKCHAIN_CURRENCY_FILE_NAME);
+            try {
+                if (jsonObject != null) {
+
+                    JSONObject newObject = jsonObject.getJSONObject(prefs.getString(Constants.CURRENCY_PREF_KEY, null));
+                    double doubleValue = newObject.getDouble("last");
+
+                    BigDecimal bigDecimal = BigDecimal.valueOf(doubleValue);
+                    return newObject.getString("symbol") + bigDecimal.toString();
                 }
             } catch (JSONException e) {
                 Log.e("Wallet Utils", "JSON Exception " + e.getMessage());

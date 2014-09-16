@@ -184,7 +184,7 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
             balanceView.setVisibility(View.VISIBLE);
             CURRENT_STATE = STATE_BAL;
 
-            balanceView.setText(prefs.getString("BALANCE", "Balance not Synced"));
+            balanceView.setText("WALLET BALANCE:\n" + prefs.getString("BALANCE", "Balance not Synced"));
         }
         else if(CURRENT_STATE == STATE_BAL){
             addressImageView.setVisibility(View.VISIBLE);

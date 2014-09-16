@@ -71,7 +71,12 @@ public class MessageListenService extends WearableListenerService {
         }
         else if(messageEvent.getPath().equals("MessageBalance")){
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            preferences.edit().putString("BALANCE", new String(messageEvent.getData())).commit();
+            String message = new String(messageEvent.getData());
+            preferences.edit().putString("BALANCE", message).commit();
+        }
+        else if(messageEvent.getPath().equals("MessageBitcoinValue")){
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            preferences.edit().putString("BTCAMOUNT", new String(messageEvent.getData())).commit();
         }
 
         Intent mainIntent = new Intent(getBaseContext(), MyActivity.class);

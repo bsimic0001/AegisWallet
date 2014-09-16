@@ -268,7 +268,11 @@ public class MainActivity extends Activity implements PasswordProvidedListener,
             String currencyValue = WalletUtils.getWalletCurrencyValue(getApplicationContext(),
                     prefs, wallet.getBalance(Wallet.BalanceType.ESTIMATED));
 
-            application.sendMessage("MessageBalance", "WALLET BALANCE:\n" + currencyValue);
+            application.sendMessage("MessageBalance", currencyValue);
+
+            String exchangeRate =  WalletUtils.getExchangeRateWithSymbol(this, prefs);
+            if(exchangeRate != null)
+                application.sendMessage("MessageBitcoinValue", exchangeRate);
         }
     }
 
@@ -514,7 +518,9 @@ public class MainActivity extends Activity implements PasswordProvidedListener,
 
         isServiceBound = this.bindService(new Intent(this, PeerBlockchainService.class), blockchainServiceConnection, Context.BIND_AUTO_CREATE);
         handlePendingTransactions();
+        sendMessagesToWear();
         doBackupReminder();
+
     }
 
     @Override
