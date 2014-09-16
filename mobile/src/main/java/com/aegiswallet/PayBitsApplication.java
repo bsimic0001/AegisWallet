@@ -151,7 +151,7 @@ public class PayBitsApplication extends Application {
                         prefs, wallet.getBalance(Wallet.BalanceType.ESTIMATED));
 
                 String currencyType = prefs.getString(Constants.CURRENCY_PREF_KEY, null);
-                sendMessage("MessageBalance", "WALLET BALANCE:\n" + currencyValue);
+                sendMessage("MessageBalance", currencyValue);
             }
 
         }
