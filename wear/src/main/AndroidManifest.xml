@@ -32,7 +32,7 @@
             android:name=".activities.WatchFaceActivity"
             android:allowEmbedded="true"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
-            android:label="HyprKey">
+            android:label="Aegis Wallet">
 
             <meta-data
                 android:name="com.google.android.clockwork.home.preview"

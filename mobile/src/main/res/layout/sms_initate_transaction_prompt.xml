@@ -82,7 +82,6 @@
                 android:textColor="@color/custom_blue"
                 android:background="@color/transparent"
                 android:padding="10dp"
-
                 android:gravity="center"
                 android:layout_weight=".5"/>
 

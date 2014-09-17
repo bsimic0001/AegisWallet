@@ -169,7 +169,6 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
                 break;
 
         }
-        //Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
 
     @Override
