@@ -18,7 +18,7 @@ import com.google.android.gms.wearable.WearableListenerService;
  */
 public class MessageListenService extends WearableListenerService {
 
-    private String TAG = "TAVONWear";
+    private String TAG = "AegisWear";
     //    private LFXNetworkContext networkContext;
     private GoogleApiClient mGoogleApiClient;
 
@@ -84,8 +84,7 @@ public class MessageListenService extends WearableListenerService {
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         mainIntent.putExtra("type", messageEvent.getPath());
         mainIntent.putExtra("data", new String(messageEvent.getData()));
-        startActivity(mainIntent);
-
+        //startActivity(mainIntent);
 
     }
 }

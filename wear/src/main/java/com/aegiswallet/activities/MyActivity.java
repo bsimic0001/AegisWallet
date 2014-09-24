@@ -13,6 +13,7 @@ import android.support.wearable.view.WatchViewStub;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowInsets;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,13 +49,19 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my);
-        final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
+        //setContentView(R.layout.activity_my);
+        WatchViewStub stub = new WatchViewStub(this);
+
+        stub.setRectLayout(R.layout.rect_activity_my);
+        stub.setRoundLayout(R.layout.round_activity_my);
+
         detector = new SimpleGestureFilter(this, this);
 
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
             public void onLayoutInflated(WatchViewStub stub) {
+
+                View rootView = stub.getRootView();
                 mTextView = (TextView) stub.findViewById(R.id.text);
                 addressImageView = (ImageView) stub.findViewById(R.id.address_image);
                 balanceView = (TextView) stub.findViewById(R.id.balance_text);
@@ -78,9 +85,22 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
                 } else {
                     Log.d("MAINACTIVITY", "address image view must be null");
                 }
+
+                rootView.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
+                    @Override
+                    public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
+
+                        final boolean round = insets.isRound();
+
+                        Log.d("MainActivity", "Is the screen round: " + round);
+                        return insets;
+                    }
+                });
+
             }
         });
 
+        setContentView(stub);
 
         //displaySpeechRecognizer();
     }
@@ -192,24 +212,5 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
         }
 
 
-    }
-
-    public static class ToTheMoonActivity extends Activity {
-
-        private TextView mTextView;
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_my);
-            final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
-            stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
-                @Override
-                public void onLayoutInflated(WatchViewStub stub) {
-                    mTextView = (TextView) stub.findViewById(R.id.text);
-                    Log.d("TAG", "TextView: " + mTextView.getText() + " view=" + mTextView);
-                }
-            });
-        }
     }
 }
