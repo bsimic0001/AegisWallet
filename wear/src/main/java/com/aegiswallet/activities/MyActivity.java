@@ -69,11 +69,7 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
                 prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 address = prefs.getString("ADDRESS", null);
 
-                Log.d("MAINACTIVITY", "ADDRESS IS: " + address);
-                Log.d("MAINACTIVITY", "Image View IS: " + addressImageView);
-
                 if (address != null && addressImageView != null) {
-                    Log.d("MAINACTIVITY", "address image view is not null");
 
                     qrCodeWriter = new QRCodeWriter();
                     Bitmap addressBitmap = encodeAsBitmap(address, BarcodeFormat.QR_CODE, 200);
@@ -91,7 +87,6 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
                     public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
 
                         final boolean round = insets.isRound();
-
                         Log.d("MainActivity", "Is the screen round: " + round);
                         return insets;
                     }

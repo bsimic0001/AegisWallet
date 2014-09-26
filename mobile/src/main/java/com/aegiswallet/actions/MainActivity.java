@@ -616,7 +616,7 @@ public class MainActivity extends Activity implements PasswordProvidedListener,
 
         //Update the last view update time here.
         lastViewUpdateTime.set(System.currentTimeMillis());
-
+        sendMessagesToWear();
     }
 
     @Override
@@ -670,8 +670,9 @@ public class MainActivity extends Activity implements PasswordProvidedListener,
                     case Constants.WALLET_UPDATE_COINS_RECEIVED:
                         Double amountReceived = data.getDouble("amount");
                         notifyCoinsReceivedOrSent(amountReceived, true);
-                        if (shouldNotify)
+                        if (shouldNotify) {
                             updateMainViews();
+                        }
                         break;
                     case Constants.WALLET_UPDATE_COINS_SENT:
                         Double amountSent = data.getDouble("amount");
@@ -703,7 +704,6 @@ public class MainActivity extends Activity implements PasswordProvidedListener,
                         }
                         break;
                     default:
-                        Log.i("Main Activity", "Handler message not found. " + msg);
                         break;
                 }
             }

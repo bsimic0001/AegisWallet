@@ -34,7 +34,7 @@
 
             <meta-data
                 android:name="com.google.android.clockwork.home.preview"
-                android:resource="@drawable/watchface" />
+                android:resource="@drawable/watchfacenew" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -298,7 +298,6 @@ public class PeerBlockchainService extends android.app.Service {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    //final boolean connectivityNotification = prefs.getBoolean(PREFS_KEY_CONNECTIVITY_NOTIFICATION, false);
 
                     if (numPeers == 0) {
                         nm.cancel(NOTIFICATION_ID_CONNECTED);
