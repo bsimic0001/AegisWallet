@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@color/blue">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:text="00:00"
+            android:textColor="@color/aegis_white"
+            android:layout_gravity="center"
+            android:background="@color/aegis_gray_bg"
+            android:gravity="center"
+
+            />
+
+        <TextView
+            android:id="@+id/time_ampm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="PM"
+            android:visibility="gone"
+            android:layout_margin="5dp"
+            android:textColor="@color/aegis_white"
+            />
+
+        <ImageView
+            android:id="@+id/btc_logo_image"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/btcwhite"
+            android:layout_margin="5dp"
+            />
+
+        <TextView
+            android:id="@+id/wallet_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="BALANCE"
+            android:textColor="@color/aegis_white"
+            android:background="@color/aegis_gray_bg"
+            android:layout_below="@+id/time"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/bitcoin_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="PRICE"
+            android:textColor="@color/aegis_white"
+            android:layout_below="@+id/wallet_balance"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

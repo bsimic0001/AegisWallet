@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/blue">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/bitcoinlogo"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="12:30"
+        android:layout_margin="5dp"
+        android:textColor="@color/aegis_white"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:id="@+id/time_ampm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="PM"
+        android:layout_margin="5dp"
+        android:textColor="@color/aegis_white"
+        android:layout_alignParentRight="true"
+        />
+
+
+    <TextView
+        android:id="@+id/bitcoin_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="1 BTC = $500"
+        android:textColor="@color/aegis_white"
+        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>
