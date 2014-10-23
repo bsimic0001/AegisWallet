@@ -282,7 +282,6 @@ public class WalletUtils {
 
             }
 
-
         } catch (final AddressFormatException x) {
             Log.e(TAG, "exception caught: " + x.getMessage());
         } catch (IOException e) {

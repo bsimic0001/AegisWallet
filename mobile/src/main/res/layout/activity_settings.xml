@@ -195,4 +195,25 @@
         android:layout_height="1px"
         android:background="@color/lighter_grey" />
 
+    <com.aegiswallet.widgets.AegisButton
+        android:id="@+id/settings_forgot_password"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="@string/forgot_password_button"
+        android:padding="10dp"
+        android:textColor="@color/custom_dark_gray"
+        android:textSize="18sp"
+        android:textAllCaps="true"
+        android:gravity="left"
+        android:background="@color/transparent"
+        android:drawableRight="@drawable/right_arrow"
+        android:onClick="initForgotPassword"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/lighter_grey" />
+
+
 </LinearLayout>

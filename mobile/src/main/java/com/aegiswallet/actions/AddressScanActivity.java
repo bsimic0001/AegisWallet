@@ -392,8 +392,7 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
                 @Override
                 public void onClick(View view) {
                     if (checkAddressAndAmountValid()) {
-
-                        if (selectedNumber != null) {
+                        if (isSMSTransaction) {
                             sendTextMessage();
                         } else {
                             String amountStr = amountText.getText().toString();

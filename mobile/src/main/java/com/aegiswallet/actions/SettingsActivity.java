@@ -24,13 +24,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
-import android.text.method.LinkMovementMethod;
-import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -337,6 +333,33 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
     private void initiateBackupRestore() {
         backupFileSelector = new FileSelector(this, BasicUtils.loadFileList(), application);
         backupFileSelector.showFileSelector();
+    }
+
+    private void initForgotPassword(View view){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+
+        String email = Constants.FORGOT_PASSWORD_EMAIL;
+
+        if (email != null) {
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[] {email});
+        }
+
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Aegis Wallet - Forgot Password/Lost NFC");
+
+        String x1 = prefs.getString(Constants.SHAMIR_LOCAL_KEY, null);
+
+        if(x1 != null){
+
+            String emailText = "Write above this line \r\n\r\n " +
+                    "I need help retrieving my funds. Please help! The information you need is below: \r\n\r\n" +
+                    "x1: " + x1;
+            intent.putExtra(Intent.EXTRA_TEXT, emailText);
+            intent.setType("text/plain");
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(this, "Something went wrong, we cant help you retrieve funds", Toast.LENGTH_LONG);
+        }
     }
 
     @Override

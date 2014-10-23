@@ -59,10 +59,8 @@ public class MessageListenService extends WearableListenerService {
      */
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
-
         Log.v(TAG, "msg rcvd");
         Log.v(TAG, messageEvent.getPath());
-
 
         if(messageEvent.getPath().equals("MessageAddress")) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
