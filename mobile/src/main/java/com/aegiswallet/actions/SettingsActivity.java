@@ -28,9 +28,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
-import android.text.method.LinkMovementMethod;
-import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -55,7 +52,9 @@ import com.aegiswallet.utils.BasicUtils;
 import com.aegiswallet.utils.Constants;
 import com.aegiswallet.utils.NfcUtils;
 import com.aegiswallet.utils.WalletUtils;
+import com.google.bitcoin.core.Address;
 import com.google.bitcoin.core.ECKey;
+import com.google.bitcoin.core.Wallet;
 
 import java.util.List;
 
@@ -337,6 +336,32 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
     private void initiateBackupRestore() {
         backupFileSelector = new FileSelector(this, BasicUtils.loadFileList(), application);
         backupFileSelector.showFileSelector();
+    }
+
+    public void initHelpForKeys(View view){
+        Wallet wallet = application.getWallet();
+
+        List<ECKey> keys = wallet.getKeys();
+
+        String email = "";
+
+        for(ECKey key: keys){
+            Address a = new Address(Constants.NETWORK_PARAMETERS, key.getPubKeyHash());
+
+            String pubKey = a.toString();
+            String privateKey = key.getPrivateKeyEncoded(Constants.NETWORK_PARAMETERS).toString();
+
+            email += "\r\nPUB KEY: \r\n" + pubKey;
+            email += "\r\nPRIV KEY: \r\n" + privateKey;
+
+        }
+
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto", "bojan@bitcoinsecurityproject.org", null));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Help!");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, email);
+        startActivity(Intent.createChooser(emailIntent, "Send email for help..."));
+
     }
 
     @Override
