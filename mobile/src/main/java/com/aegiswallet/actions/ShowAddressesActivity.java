@@ -23,10 +23,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -136,7 +136,8 @@ public class ShowAddressesActivity extends Activity implements PasswordProvidedL
 
                     if (application.getKeyCache() != null) {
                         AddWalletAddressTask addWalletAddressTask = new AddWalletAddressTask(context, wallet, null, application, addressListAdapter, application.getKeyCache());
-                        addWalletAddressTask.execute();
+                        //addWalletAddressTask.execute();
+                        addWalletAddressTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                     } else if (nfcEnabled) {
                         application.showNFCPrompt(context);
                         addAddress = true;
@@ -151,7 +152,8 @@ public class ShowAddressesActivity extends Activity implements PasswordProvidedL
                 @Override
                 public void onClick(View view) {
                     AddWalletAddressTask addWalletAddressTask = new AddWalletAddressTask(context, wallet, null, application, addressListAdapter, application.getKeyCache());
-                    addWalletAddressTask.execute();
+                    //addWalletAddressTask.execute();
+                    addWalletAddressTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                 }
             });
         }
@@ -162,7 +164,8 @@ public class ShowAddressesActivity extends Activity implements PasswordProvidedL
     @Override
     public void onPasswordProvided(String password, int action) {
         AddWalletAddressTask addWalletAddressTask = new AddWalletAddressTask(context, wallet, password, application, addressListAdapter, application.getKeyCache());
-        addWalletAddressTask.execute();
+        //addWalletAddressTask.execute();
+        addWalletAddressTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
     }
 
     @Override
@@ -186,7 +189,8 @@ public class ShowAddressesActivity extends Activity implements PasswordProvidedL
             if (resultString != null && addAddress) {
                 application.cancelNFCPrompt(context);
                 AddWalletAddressTask addWalletAddressTask = new AddWalletAddressTask(context, wallet, resultString, application, addressListAdapter, application.getKeyCache());
-                addWalletAddressTask.execute();
+                //addWalletAddressTask.execute();
+                addWalletAddressTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                 addAddress = false;
             }
         } else {

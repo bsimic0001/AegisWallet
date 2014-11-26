@@ -24,6 +24,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -37,17 +38,12 @@ import android.widget.Toast;
 
 import com.aegiswallet.PayBitsApplication;
 import com.aegiswallet.R;
-import com.aegiswallet.listeners.ImportCompletedListener;
-import com.aegiswallet.listeners.PasswordProvidedListener;
-import com.aegiswallet.listeners.WalletEncryptedListener;
 import com.aegiswallet.tasks.DecryptWalletAndAddKeysTask;
-import com.aegiswallet.tasks.EncryptWalletTask;
 import com.aegiswallet.utils.Constants;
 import com.aegiswallet.utils.NfcUtils;
 import com.aegiswallet.utils.WalletUtils;
 import com.google.bitcoin.core.Address;
 import com.google.bitcoin.core.AddressFormatException;
-import com.google.bitcoin.core.DumpedPrivateKey;
 import com.google.bitcoin.core.ECKey;
 import com.google.bitcoin.core.Wallet;
 import com.google.zxing.client.android.CaptureActivity;
@@ -199,7 +195,8 @@ public class AddWatchAddressActivity extends Activity {
                                 resultString,
                                 keyList);
 
-                decryptWalletAndAddKeysTask.execute();
+                //decryptWalletAndAddKeysTask.execute();
+                decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                 //initiateSendCoins(amountStr, resultString);
             }
         } else {

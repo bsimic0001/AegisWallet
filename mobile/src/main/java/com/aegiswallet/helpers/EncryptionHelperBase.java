@@ -1,25 +1,6 @@
-/*
- * Aegis Bitcoin Wallet - The secure Bitcoin wallet for Android
- * Copyright 2014 Bojan Simic and specularX.co, designed by Reuven Yamrom
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-package com.aegiswallet.tasks;
+package com.aegiswallet.helpers;
 
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -48,20 +29,15 @@ import java.util.List;
 import java.util.TimeZone;
 
 /**
- * Created by bsimic on 5/6/14.
+ * Created by HyperCorp on 11/10/14.
  */
-public class BaseTask extends AsyncTask {
+public class EncryptionHelperBase {
 
     private String TAG = this.getClass().getName();
 
-    @Override
-    protected Object doInBackground(Object[] objects) {
-        return null;
-    }
 
-    @Override
-    protected void onPostExecute(Object o) {
-        super.onPostExecute(o);
+    public EncryptionHelperBase(){
+
     }
 
     public void encryptWalletShamirNFC(Wallet wallet, String x2, PayBitsApplication application) {

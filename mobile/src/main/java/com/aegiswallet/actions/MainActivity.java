@@ -33,6 +33,8 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -203,6 +205,7 @@ public class MainActivity extends Activity implements PasswordProvidedListener,
 
         GetCurrencyInfoTask currencyInfoTask = new GetCurrencyInfoTask(getApplicationContext());
         currencyInfoTask.execute();
+        //currencyInfoTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
 
         watchedBalanceLinearLayout = (LinearLayout) findViewById(R.id.watched_balance_view);
 
@@ -255,7 +258,8 @@ public class MainActivity extends Activity implements PasswordProvidedListener,
         isServiceBound = this.bindService(new Intent(this, PeerBlockchainService.class), blockchainServiceConnection, Context.BIND_AUTO_CREATE);
 
         HandleSMSResponsesTask handleSMSResponsesTask = new HandleSMSResponsesTask(this);
-        handleSMSResponsesTask.execute();
+        //handleSMSResponsesTask.execute();
+        handleSMSResponsesTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
 
         sendMessagesToWear();
 
@@ -350,7 +354,9 @@ public class MainActivity extends Activity implements PasswordProvidedListener,
                             //do decrypt wallet
                             if (application.getKeyCache() != null) {
                                 DecryptWalletTask decryptWalletTask = new DecryptWalletTask(context, wallet, null, application);
-                                decryptWalletTask.execute();
+                                //decryptWalletTask.execute();
+                                decryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
+
                             }
                             //Means x2 is written to the tag.
                             else if (!prefs.contains(Constants.SHAMIR_ENCRYPTED_KEY)) {
@@ -836,8 +842,20 @@ public class MainActivity extends Activity implements PasswordProvidedListener,
     }
 
     private void encryptWallet(String password) {
-        EncryptWalletTask encryptWalletTask = new EncryptWalletTask(context, wallet, password, application, false);
-        encryptWalletTask.execute();
+        try {
+            EncryptWalletTask encryptWalletTask = new EncryptWalletTask(context, wallet, password, application, false);
+            Log.d(TAG, "about to do execute...");
+            //encryptWalletTask.execute();
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+                encryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
+            else
+                encryptWalletTask.execute();
+
+        }
+        catch (Exception e){
+            Log.d(TAG, e.getMessage());
+        }
     }
 
     @Override
@@ -846,10 +864,16 @@ public class MainActivity extends Activity implements PasswordProvidedListener,
             encryptWallet(password);
         } else if (action == Constants.ACTION_DECRYPT) {
             DecryptWalletTask decryptWalletTask = new DecryptWalletTask(context, wallet, password, application);
-            decryptWalletTask.execute();
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+                decryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
+            else
+                decryptWalletTask.execute();
+
         } else if (action == Constants.ACTION_BACKUP) {
             BackupWalletTask backupWalletTask = new BackupWalletTask(application, context, wallet, password);
-            backupWalletTask.execute();
+            //backupWalletTask.execute();
+            backupWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         }
     }
 

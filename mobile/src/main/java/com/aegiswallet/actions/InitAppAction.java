@@ -26,6 +26,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,12 +42,13 @@ import com.aegiswallet.utils.BasicUtils;
 import com.aegiswallet.utils.Constants;
 import com.aegiswallet.utils.NfcUtils;
 import com.aegiswallet.utils.WalletUtils;
-import com.google.bitcoin.core.Wallet;
 
 /**
  * Created by bsimic on 5/9/14.
  */
 public class InitAppAction extends Activity implements WalletEncryptedListener {
+
+    private String TAG = this.getClass().getName();
 
     private EditText passwordInput;
     private EditText passwordConfirmInput;
@@ -112,15 +114,21 @@ public class InitAppAction extends Activity implements WalletEncryptedListener {
                         Toast.makeText(context, getString(R.string.password_guessable), Toast.LENGTH_LONG).show();
                         continueButton.setText(getString(R.string.continue_string));
                     } else {
+                        System.out.println("Password is good, about to generateSecureKey");
+                        Log.d(TAG, "Password is good, about to generateSecureKey");
+
                         String passwordSalt = BasicUtils.generateSecureKey();
                         String passwordHash = passwordSalt + WalletUtils.convertToSha256(passwordSalt + password);
 
                         application.getPrefs().edit().putString(Constants.PASSWORD_HASH, passwordHash).commit();
                         application.getPrefs().edit().putString(Constants.PASSWORD_SALT, passwordSalt).commit();
                         application.getPrefs().edit().putBoolean(Constants.APP_INIT_COMPLETE, true).commit();
+                        System.out.println("Starting Encrypt Wallet Tastk...");
+                        Log.d(TAG, "Starting Encrypt Wallet Tastk...");
 
                         encryptWalletTask = new EncryptWalletTask(context, application.getWallet(), password, application, false);
-                        encryptWalletTask.execute();
+                        //encryptWalletTask.execute();
+                        encryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                     }
                 } else if (!password.equals(passwordConfirm)) {
                     Toast.makeText(context, getString(R.string.settings_change_password_mismatch), Toast.LENGTH_LONG).show();
@@ -184,7 +192,8 @@ public class InitAppAction extends Activity implements WalletEncryptedListener {
             prefs.edit().putString(Constants.SHAMIR_X2_HASHED, WalletUtils.convertToSha256(x2Value)).commit();
             prefs.edit().remove(Constants.SHAMIR_ENCRYPTED_KEY).commit();
 
-            encryptWalletTask.execute();
+            //encryptWalletTask.execute();
+            encryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
 
         }
 

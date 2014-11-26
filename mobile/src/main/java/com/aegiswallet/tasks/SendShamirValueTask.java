@@ -26,7 +26,6 @@ import android.util.Log;
 import com.aegiswallet.PayBitsApplication;
 import com.aegiswallet.utils.Constants;
 
-import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -35,7 +34,6 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.HttpParams;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -104,5 +102,6 @@ public class SendShamirValueTask extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
+        Log.d(TAG, "Shamir sending task completed...");
     }
 }

@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
@@ -221,7 +222,8 @@ public class ImportWalletActivity extends Activity implements ImportCompletedLis
                             if(checkWalletPassword()){
                                 List<ECKey> keys = WalletUtils.restoreWalletFromBackupFile(fileName, password, application.getWallet(), false);
                                 DecryptWalletAndAddKeysTask decryptWalletAndAddKeysTask = new DecryptWalletAndAddKeysTask(application, application.getWallet(), context, walletPasswordField.getText().toString(), keys);
-                                decryptWalletAndAddKeysTask.execute();
+                                //decryptWalletAndAddKeysTask.execute();
+                                decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                             }
                             else{
                                 Toast.makeText(context, context.getString(R.string.email_import_invalid_wallet_password), Toast.LENGTH_SHORT).show();
@@ -339,7 +341,8 @@ public class ImportWalletActivity extends Activity implements ImportCompletedLis
             DecryptWalletAndAddKeysTask decryptWalletAndAddKeysTask =
                     new DecryptWalletAndAddKeysTask(application, application.getWallet(), context, resultString, this.keyList);
 
-            decryptWalletAndAddKeysTask.execute();
+            //decryptWalletAndAddKeysTask.execute();
+            decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             return;
         }
         //If wallet is NFC encrypted and file is password encrypted
@@ -358,7 +361,8 @@ public class ImportWalletActivity extends Activity implements ImportCompletedLis
                 DecryptWalletAndAddKeysTask decryptWalletAndAddKeysTask =
                         new DecryptWalletAndAddKeysTask(application, application.getWallet(), context, resultString, keys);
 
-                decryptWalletAndAddKeysTask.execute();
+                //decryptWalletAndAddKeysTask.execute();
+                decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                 return;
             } else {
                 Toast.makeText(context, R.string.email_import_invalid_file_password, Toast.LENGTH_LONG).show();
@@ -376,7 +380,8 @@ public class ImportWalletActivity extends Activity implements ImportCompletedLis
                 DecryptWalletAndAddKeysTask decryptWalletAndAddKeysTask =
                         new DecryptWalletAndAddKeysTask(application, application.getWallet(), context, walletPassword, keys);
 
-                decryptWalletAndAddKeysTask.execute();
+                //decryptWalletAndAddKeysTask.execute();
+                decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                 return;
             } else {
                 Toast.makeText(context, R.string.email_import_invalid_wallet_password, Toast.LENGTH_LONG).show();
@@ -385,7 +390,8 @@ public class ImportWalletActivity extends Activity implements ImportCompletedLis
 
         } else if (this.keyList == null && isNFCEncrypted) {
             ImportWalletTask importWalletTask = new ImportWalletTask(application, application.getWallet(), context, resultString, fileName);
-            importWalletTask.execute();
+            //importWalletTask.execute();
+            importWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         }
         //IF wallet is password encrypted AND file is password encrypted we don't want to do anything.
         else if (!isWalletEncrypted && !isNFCEncrypted) {

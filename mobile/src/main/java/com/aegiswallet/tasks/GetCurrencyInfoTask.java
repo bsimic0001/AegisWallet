@@ -50,6 +50,8 @@ public class GetCurrencyInfoTask extends AsyncTask<String, Void, Void> {
     private JSONObject jsonObject;
     private SharedPreferences sharedPreferences;
 
+    private String TAG = this.getClass().getName();
+
     public GetCurrencyInfoTask(Context context) {
         this.context = context;
         this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -57,6 +59,8 @@ public class GetCurrencyInfoTask extends AsyncTask<String, Void, Void> {
 
     @Override
     protected Void doInBackground(String... strings) {
+
+        Log.d(TAG, "inside currency info task...");
 
         if(fileExistance(Constants.BLOCKCHAIN_CURRENCY_FILE_NAME) && !shouldRefreshFile(Constants.BLOCKCHAIN_CURRENCY_FILE_NAME)){
             return null;

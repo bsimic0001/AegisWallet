@@ -22,7 +22,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
+import android.os.AsyncTask;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -118,7 +118,8 @@ public class FileSelector {
                         dialog.dismiss();
                         filePassword = password;
                         ImportWalletTask importWalletTask = new ImportWalletTask(application, application.getWallet(), context, password, chosenFileName);
-                        importWalletTask.execute();
+                        //importWalletTask.execute();
+                        importWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
 
                     } else if(chosenFileName != null) {
                         Toast.makeText(context, context.getString(R.string.invalid_password_string), Toast.LENGTH_SHORT).show();

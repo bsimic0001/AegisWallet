@@ -24,6 +24,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -222,7 +223,8 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
                                 currentPassword.getText().toString(),
                                 newPassword.getText().toString());
 
-                        changePasswordTask.execute();
+                        //changePasswordTask.execute();
+                        changePasswordTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                     } else {
                         WalletUtils.changePassword(newPassword.getText().toString(), prefs);
                         Intent intent = new Intent(context, MainActivity.class);
@@ -335,7 +337,8 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
         backupFileSelector.showFileSelector();
     }
 
-    private void initForgotPassword(View view){
+    /*
+    public void initForgotPassword(View view){
         Intent intent = new Intent(Intent.ACTION_SEND);
 
         String email = Constants.FORGOT_PASSWORD_EMAIL;
@@ -362,13 +365,16 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
         }
     }
 
+    */
+
     @Override
     public void onWalletDecrypted(String newPasswordString) {
         if (switchToNFCFlag) {
             launchSwitchToNFCActivity(true);
         } else {
             EncryptWalletTask encryptWalletTask = new EncryptWalletTask(context, application.getWallet(), newPasswordString, application, false);
-            encryptWalletTask.execute();
+            //encryptWalletTask.execute();
+            encryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         }
     }
 
@@ -403,7 +409,8 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
                                     backupFileSelector.getFilePassword(),
                                     this.keyList);
 
-                    decryptWalletAndAddKeysTask.execute();
+                    //decryptWalletAndAddKeysTask.execute();
+                    decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                 } else {
                     application.showPasswordPrompt(context, Constants.ACTION_RESTORE_BACKUP);
                 }
@@ -420,11 +427,13 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
 
             if (WalletUtils.checkPassword(password, prefs) && keyList != null) {
                 DecryptWalletAndAddKeysTask decryptWalletAndAddKeysTask = new DecryptWalletAndAddKeysTask(application, application.getWallet(), context, password, keyList);
-                decryptWalletAndAddKeysTask.execute();
+                //decryptWalletAndAddKeysTask.execute();
+                decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             }
         } else if (action == Constants.ACTION_SWITCH_TO_NFC) {
             DecryptWalletTask decryptWalletTask = new DecryptWalletTask(context, application.getWallet(), password, application);
-            decryptWalletTask.execute();
+            //decryptWalletTask.execute();
+            decryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         }
     }
 
@@ -453,7 +462,8 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
                 DecryptWalletAndAddKeysTask decryptWalletAndAddKeysTask =
                         new DecryptWalletAndAddKeysTask(application, application.getWallet(), context, resultString, this.keyList);
 
-                decryptWalletAndAddKeysTask.execute();
+                //decryptWalletAndAddKeysTask.execute();
+                decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             }
         }
     }
