@@ -21,9 +21,9 @@ package com.aegiswallet.actions;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -145,7 +145,8 @@ public class NFCActivity extends Activity implements
                             application,
                             true);
 
-                    encryptWalletTask.execute();
+                    //encryptWalletTask.execute();
+                    encryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                     application.getPrefs().edit().putString(Constants.SHAMIR_X2_HASHED, WalletUtils.convertToSha256(x2Value)).commit();
                     application.getPrefs().edit().remove(Constants.SHAMIR_ENCRYPTED_KEY).commit();
 
@@ -205,28 +206,34 @@ public class NFCActivity extends Activity implements
 
         if (resultString != null && restoreBackupFile) {
             ImportWalletTask importWalletTask = new ImportWalletTask(application, application.getWallet(), context, resultString, fileNameForRestoreBackup);
-            importWalletTask.execute();
+            //importWalletTask.execute();
+            importWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             return;
         }
 
         if (resultString != null && shamirX2Hashed.equals(WalletUtils.convertToSha256(resultString)) && action != null) {
             if (action.equals("decrypt")) {
                 DecryptWalletTask decryptWalletTask = new DecryptWalletTask(context, application.getWallet(), resultString, application);
-                decryptWalletTask.execute();
+                //decryptWalletTask.execute();
+                decryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             } else if (action.equals("encrypt")) {
                 EncryptWalletTask encryptWalletTask = new EncryptWalletTask(context, application.getWallet(), resultString, application, true);
-                encryptWalletTask.execute();
+                //encryptWalletTask.execute();
+                encryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             } else if (action.equals("backup")) {
                 BackupWalletTask backupWalletTask = new BackupWalletTask(application, context, application.getWallet(), resultString);
-                backupWalletTask.execute();
+                //backupWalletTask.execute();
+                backupWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             } else if (restoreBackupFilePart2) {
                 DecryptWalletAndAddKeysTask decryptWalletAndAddKeysTask = new DecryptWalletAndAddKeysTask(application, application.getWallet(), context, resultString, providedKeyList);
-                decryptWalletAndAddKeysTask.execute();
+                //decryptWalletAndAddKeysTask.execute();
+                decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             } else if (switchToPassword) {
 
                 if (application.getWallet().isEncrypted()) {
                     DecryptWalletTask decryptWalletTask = new DecryptWalletTask(context, application.getWallet(), resultString, application);
-                    decryptWalletTask.execute();
+                    //decryptWalletTask.execute();
+                    decryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                 } else {
                     doPasswordReset(false, resultString);
                 }
@@ -260,7 +267,8 @@ public class NFCActivity extends Activity implements
 
             if (justDecrypted) {
                 EncryptWalletTask encryptWalletTask = new EncryptWalletTask(context, application.getWallet(), newPassword, application, false);
-                encryptWalletTask.execute();
+                //encryptWalletTask.execute();
+                encryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             } else {
                 startMainActivity();
             }
@@ -321,7 +329,8 @@ public class NFCActivity extends Activity implements
     public void onPasswordProvided(String password, int encrypt) {
         if (restoreBackupFilePart2 && providedKeyList != null) {
             DecryptWalletAndAddKeysTask decryptWalletAndAddKeysTask = new DecryptWalletAndAddKeysTask(application, application.getWallet(), context, password, providedKeyList);
-            decryptWalletAndAddKeysTask.execute();
+            //decryptWalletAndAddKeysTask.execute();
+            decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         }
     }
 }

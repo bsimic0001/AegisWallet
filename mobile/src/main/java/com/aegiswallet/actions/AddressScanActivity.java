@@ -24,6 +24,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -392,8 +393,7 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
                 @Override
                 public void onClick(View view) {
                     if (checkAddressAndAmountValid()) {
-
-                        if (selectedNumber != null) {
+                        if (isSMSTransaction) {
                             sendTextMessage();
                         } else {
                             String amountStr = amountText.getText().toString();
@@ -537,7 +537,8 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
             }
 
             SendBTCTask sendBTCTask = new SendBTCTask(this, wallet, passOrNFC, toAddressText.getText().toString(), newAmount, application, tagText);
-            sendBTCTask.execute();
+            //sendBTCTask.execute();
+            sendBTCTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
 
             SharedPreferences prefs = context.getSharedPreferences(context.getString(R.string.sms_transaction_filename), Context.MODE_PRIVATE);
 

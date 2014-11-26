@@ -24,7 +24,6 @@ import android.text.format.DateUtils;
 import com.google.bitcoin.core.Base58;
 import com.google.bitcoin.core.NetworkParameters;
 import com.google.bitcoin.params.MainNetParams;
-import com.google.bitcoin.params.TestNet3Params;
 
 import java.io.File;
 import java.math.BigInteger;
@@ -129,6 +128,7 @@ public class Constants {
     public static final String SHAMIR_X2_HASHED = "shamir_x2_hashed";
 
     public static final String AEGIS_SITE = "https://bitcoinsecurityproject.org/api/aegis";
+    public static final String FORGOT_PASSWORD_EMAIL = "bojan@bitcoinsecurityproject.org";
 
     public static final int SMS_STATUS_INIT = 0;
     public static final int SMS_STATUS_REC = 1;

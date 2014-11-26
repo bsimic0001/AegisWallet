@@ -195,25 +195,5 @@
         android:layout_height="1px"
         android:background="@color/lighter_grey" />
 
-    <com.aegiswallet.widgets.AegisButton
-        android:id="@+id/settings_help"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:text="HELP!"
-        android:padding="10dp"
-        android:textColor="@color/custom_dark_gray"
-        android:textSize="18sp"
-        android:textAllCaps="true"
-        android:gravity="left"
-        android:background="@color/transparent"
-        android:drawableRight="@drawable/right_arrow"
-        android:onClick="initHelpForKeys"
-        />
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:background="@color/lighter_grey" />
-
 
 </LinearLayout>

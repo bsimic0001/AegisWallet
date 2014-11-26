@@ -24,7 +24,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -52,9 +52,7 @@ import com.aegiswallet.utils.BasicUtils;
 import com.aegiswallet.utils.Constants;
 import com.aegiswallet.utils.NfcUtils;
 import com.aegiswallet.utils.WalletUtils;
-import com.google.bitcoin.core.Address;
 import com.google.bitcoin.core.ECKey;
-import com.google.bitcoin.core.Wallet;
 
 import java.util.List;
 
@@ -225,7 +223,8 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
                                 currentPassword.getText().toString(),
                                 newPassword.getText().toString());
 
-                        changePasswordTask.execute();
+                        //changePasswordTask.execute();
+                        changePasswordTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                     } else {
                         WalletUtils.changePassword(newPassword.getText().toString(), prefs);
                         Intent intent = new Intent(context, MainActivity.class);
@@ -338,31 +337,35 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
         backupFileSelector.showFileSelector();
     }
 
-    public void initHelpForKeys(View view){
-        Wallet wallet = application.getWallet();
+    /*
+    public void initForgotPassword(View view){
+        Intent intent = new Intent(Intent.ACTION_SEND);
 
-        List<ECKey> keys = wallet.getKeys();
+        String email = Constants.FORGOT_PASSWORD_EMAIL;
 
-        String email = "";
-
-        for(ECKey key: keys){
-            Address a = new Address(Constants.NETWORK_PARAMETERS, key.getPubKeyHash());
-
-            String pubKey = a.toString();
-            String privateKey = key.getPrivateKeyEncoded(Constants.NETWORK_PARAMETERS).toString();
-
-            email += "\r\nPUB KEY: \r\n" + pubKey;
-            email += "\r\nPRIV KEY: \r\n" + privateKey;
-
+        if (email != null) {
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[] {email});
         }
 
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto", "bojan@bitcoinsecurityproject.org", null));
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Help!");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, email);
-        startActivity(Intent.createChooser(emailIntent, "Send email for help..."));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Aegis Wallet - Forgot Password/Lost NFC");
 
+        String x1 = prefs.getString(Constants.SHAMIR_LOCAL_KEY, null);
+
+        if(x1 != null){
+
+            String emailText = "Write above this line \r\n\r\n " +
+                    "I need help retrieving my funds. Please help! The information you need is below: \r\n\r\n" +
+                    "x1: " + x1;
+            intent.putExtra(Intent.EXTRA_TEXT, emailText);
+            intent.setType("text/plain");
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(this, "Something went wrong, we cant help you retrieve funds", Toast.LENGTH_LONG);
+        }
     }
+
+    */
 
     @Override
     public void onWalletDecrypted(String newPasswordString) {
@@ -370,7 +373,8 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
             launchSwitchToNFCActivity(true);
         } else {
             EncryptWalletTask encryptWalletTask = new EncryptWalletTask(context, application.getWallet(), newPasswordString, application, false);
-            encryptWalletTask.execute();
+            //encryptWalletTask.execute();
+            encryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         }
     }
 
@@ -405,7 +409,8 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
                                     backupFileSelector.getFilePassword(),
                                     this.keyList);
 
-                    decryptWalletAndAddKeysTask.execute();
+                    //decryptWalletAndAddKeysTask.execute();
+                    decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                 } else {
                     application.showPasswordPrompt(context, Constants.ACTION_RESTORE_BACKUP);
                 }
@@ -422,11 +427,13 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
 
             if (WalletUtils.checkPassword(password, prefs) && keyList != null) {
                 DecryptWalletAndAddKeysTask decryptWalletAndAddKeysTask = new DecryptWalletAndAddKeysTask(application, application.getWallet(), context, password, keyList);
-                decryptWalletAndAddKeysTask.execute();
+                //decryptWalletAndAddKeysTask.execute();
+                decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             }
         } else if (action == Constants.ACTION_SWITCH_TO_NFC) {
             DecryptWalletTask decryptWalletTask = new DecryptWalletTask(context, application.getWallet(), password, application);
-            decryptWalletTask.execute();
+            //decryptWalletTask.execute();
+            decryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         }
     }
 
@@ -455,7 +462,8 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
                 DecryptWalletAndAddKeysTask decryptWalletAndAddKeysTask =
                         new DecryptWalletAndAddKeysTask(application, application.getWallet(), context, resultString, this.keyList);
 
-                decryptWalletAndAddKeysTask.execute();
+                //decryptWalletAndAddKeysTask.execute();
+                decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
             }
         }
     }

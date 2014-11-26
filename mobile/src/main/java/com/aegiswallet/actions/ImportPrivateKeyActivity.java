@@ -23,6 +23,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -43,7 +44,6 @@ import com.aegiswallet.tasks.EncryptWalletTask;
 import com.aegiswallet.utils.Constants;
 import com.aegiswallet.utils.NfcUtils;
 import com.aegiswallet.utils.WalletUtils;
-import com.google.bitcoin.core.Address;
 import com.google.bitcoin.core.AddressFormatException;
 import com.google.bitcoin.core.DumpedPrivateKey;
 import com.google.bitcoin.core.ECKey;
@@ -179,7 +179,8 @@ public class ImportPrivateKeyActivity extends Activity implements WalletEncrypte
                                 resultString,
                                 keyList);
 
-                decryptWalletAndAddKeysTask.execute();
+                //decryptWalletAndAddKeysTask.execute();
+                decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
                 //initiateSendCoins(amountStr, resultString);
             }
         } else {
@@ -244,7 +245,8 @@ public class ImportPrivateKeyActivity extends Activity implements WalletEncrypte
                             password,
                             keyList);
 
-            decryptWalletAndAddKeysTask.execute();
+            //decryptWalletAndAddKeysTask.execute();
+            decryptWalletAndAddKeysTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         }
     }
 
@@ -258,7 +260,8 @@ public class ImportPrivateKeyActivity extends Activity implements WalletEncrypte
             else
                 encryptWalletTask = new EncryptWalletTask(context, wallet, passwordOrX2, application, false);
 
-            encryptWalletTask.execute();
+            //encryptWalletTask.execute();
+            encryptWalletTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         } else {
             application.showImportCompletedPrompt(context, null);
         }

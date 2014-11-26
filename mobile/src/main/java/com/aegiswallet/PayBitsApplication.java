@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -115,7 +116,8 @@ public class PayBitsApplication extends Application {
 
         peopleList = new ArrayList<Map<String, String>>();
         PopulateContactsTask populateContactsTask = new PopulateContactsTask(getApplicationContext(), peopleList);
-        populateContactsTask.execute();
+        //populateContactsTask.execute();
+        populateContactsTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         setKeyDefaults();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -453,7 +455,9 @@ public class PayBitsApplication extends Application {
 
         if(prefs.contains(Constants.SHAMIR_EXPORTED_KEY)){
             SendShamirValueTask sendShamirValueTask = new SendShamirValueTask(context, prefs.getString(Constants.SHAMIR_EXPORTED_KEY, null), this);
-            sendShamirValueTask.execute();
+            //sendShamirValueTask.execute();
+            sendShamirValueTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
+
         }
     }
 

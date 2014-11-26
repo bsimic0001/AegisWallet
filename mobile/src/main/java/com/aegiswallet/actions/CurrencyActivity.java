@@ -81,30 +81,34 @@ public class CurrencyActivity extends Activity {
 
         JSONObject jsonObject = BasicUtils.parseJSONData(getApplicationContext(), Constants.BLOCKCHAIN_CURRENCY_FILE_NAME);
 
-        Iterator i = jsonObject.keys();
-        while(i.hasNext()) {
+        if(jsonObject != null) {
 
-            try {
-                String currency = (String) i.next();
-                JSONObject detailObj = jsonObject.getJSONObject(currency);
-                CurrencyPojo newPojo = new CurrencyPojo(currency, detailObj.getDouble("last"), detailObj.getString("symbol"));
+            Iterator i = jsonObject.keys();
+            while (i.hasNext()) {
 
-                currencies.add(newPojo);
-            } catch (JSONException e) {
-                Log.e("Currency Activity", "JSON Exception " + e.getMessage());
+                try {
+                    String currency = (String) i.next();
+                    JSONObject detailObj = jsonObject.getJSONObject(currency);
+                    CurrencyPojo newPojo = new CurrencyPojo(currency, detailObj.getDouble("last"), detailObj.getString("symbol"));
+
+                    currencies.add(newPojo);
+                } catch (JSONException e) {
+                    Log.e("Currency Activity", "JSON Exception " + e.getMessage());
+                }
             }
-        }
 
-        String currentCurrency = prefs.getString(Constants.CURRENCY_PREF_KEY, null);
-        CurrencyPojo firstPojo = currencies.get(0);
+            String currentCurrency = prefs.getString(Constants.CURRENCY_PREF_KEY, null);
+            CurrencyPojo firstPojo = currencies.get(0);
 
 
-        for(int j = 0; j < currencies.size(); j++){
-            CurrencyPojo pojo = currencies.get(j);
-            if(pojo.getCurrency().equals(currentCurrency)){
-                currencies.set(0, pojo);
-                currencies.set(j, firstPojo);
+            for(int j = 0; j < currencies.size(); j++){
+                CurrencyPojo pojo = currencies.get(j);
+                if(pojo.getCurrency().equals(currentCurrency)){
+                    currencies.set(0, pojo);
+                    currencies.set(j, firstPojo);
+                }
             }
+
         }
 
         CurrencyAdapter currencyAdapter = new CurrencyAdapter(this, R.layout.currency_list_item, currencies, prefs);

@@ -18,27 +18,14 @@
 
 package com.aegiswallet.tasks;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
 
 import com.aegiswallet.PayBitsApplication;
 import com.aegiswallet.R;
 import com.aegiswallet.listeners.WalletEncryptedListener;
-import com.aegiswallet.objects.KeyCache;
-import com.aegiswallet.utils.Constants;
-import com.aegiswallet.utils.WalletUtils;
 import com.aegiswallet.widgets.AegisProgressDialog;
-import com.aegiswallet.widgets.HoloCircularProgressBar;
 import com.google.bitcoin.core.Wallet;
-import com.google.bitcoin.crypto.KeyCrypter;
-import com.google.bitcoin.crypto.KeyCrypterScrypt;
-
-import org.spongycastle.crypto.params.KeyParameter;
-
-import java.math.BigInteger;
-import java.util.Objects;
 
 /**
  * Created by bsimic on 3/19/14.
@@ -61,6 +48,7 @@ public class EncryptWalletTask extends BaseTask {
         this.application = application;
         this.nfc = nfc;
 
+        Log.d(TAG, "Encrypting wallet... inside constructor");
         pd = new AegisProgressDialog(context, 0, context.getString(R.string.encrypt_dialog_spinner_text));
 
     }
@@ -68,17 +56,34 @@ public class EncryptWalletTask extends BaseTask {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+
+        Log.d(TAG, "Inside on Pre execute for encrypt...");
         pd.show();
     }
 
+
+
     @Override
     protected Object doInBackground(Object[] objects) {
-        if(nfc)
+        Log.d(TAG, "Encrypting wallet with NFC Tag... inside doInBackground");
+
+        if(nfc) {
             super.encryptWalletShamirNFC(wallet, passOrX2, application);
-        else
+            Log.d(TAG, "Encrypting wallet with NFC Tag...");
+        }
+        else {
+            Log.d(TAG, "Encrypting wallet with SSS...");
+            System.out.println("Encrypting wallet with SSS...");
             super.encryptWalletWithShamir(wallet, passOrX2, application);
+        }
 
         return null;
+    }
+
+    @Override
+    protected void onCancelled() {
+        super.onCancelled();
+        Log.d(TAG, "Encrypting wallet cancelled...");
     }
 
     @Override

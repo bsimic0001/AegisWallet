@@ -337,6 +337,8 @@
     <string name="invalid_watch_address">Invalid Address</string>
     <string name="add_watch_address_button">Add Watch Address</string>
 
+    <string name="forgot_password_button">Forgot Password/Lost NFC</string>
+
     <string name="watch_address_removed_success">Watch Address Removed</string>
     <string name="watch_address_not_removed">Removing Watch Address Failed</string>
 
