@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="vt-dictionary-3.0">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/mobile/libs/vt-dictionary-3.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

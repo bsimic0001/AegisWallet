@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="bitcoinj-tools-0.12-SNAPSHOT">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/mobile/libs/bitcoinj-tools-0.12-SNAPSHOT.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
