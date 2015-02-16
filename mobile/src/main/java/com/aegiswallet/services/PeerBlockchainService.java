@@ -528,7 +528,6 @@ public class PeerBlockchainService extends android.app.Service {
             notificationCount = 0;
             notificationAccumulatedAmount = BigInteger.ZERO;
             notificationAddresses.clear();
-
             nm.cancel(NOTIFICATION_ID_COINS_RECEIVED);
         } else if (PeerBlockchainService.ACTION_RESET_BLOCKCHAIN.equals(action)) {
             resetBlockchainOnShutdown = true;
