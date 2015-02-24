@@ -49,53 +49,33 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_my);
-        WatchViewStub stub = new WatchViewStub(this);
-
-        stub.setRectLayout(R.layout.rect_activity_my);
-        stub.setRoundLayout(R.layout.round_activity_my);
+        setContentView(R.layout.aegis_activity_layout);
 
         detector = new SimpleGestureFilter(this, this);
 
-        stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
-            @Override
-            public void onLayoutInflated(WatchViewStub stub) {
+        mTextView = (TextView) this.findViewById(R.id.text);
+        addressImageView = (ImageView) this.findViewById(R.id.address_image);
+        balanceView = (TextView) this.findViewById(R.id.balance_text);
 
-                View rootView = stub.getRootView();
-                mTextView = (TextView) stub.findViewById(R.id.text);
-                addressImageView = (ImageView) stub.findViewById(R.id.address_image);
-                balanceView = (TextView) stub.findViewById(R.id.balance_text);
+        prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        address = prefs.getString("ADDRESS", null);
 
-                prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                address = prefs.getString("ADDRESS", null);
+        if (address != null && addressImageView != null) {
 
-                if (address != null && addressImageView != null) {
+            qrCodeWriter = new QRCodeWriter();
+            Bitmap addressBitmap = encodeAsBitmap(address, BarcodeFormat.QR_CODE, 200);
+            addressImageView.setImageBitmap(addressBitmap);
 
-                    qrCodeWriter = new QRCodeWriter();
-                    Bitmap addressBitmap = encodeAsBitmap(address, BarcodeFormat.QR_CODE, 200);
-                    addressImageView.setImageBitmap(addressBitmap);
+            addressImageView.setVisibility(View.VISIBLE);
+            CURRENT_STATE = STATE_QR;
 
-                    addressImageView.setVisibility(View.VISIBLE);
-                    CURRENT_STATE = STATE_QR;
+        } else {
+            Log.d("MAINACTIVITY", "address image view must be null");
 
-                } else {
-                    Log.d("MAINACTIVITY", "address image view must be null");
-                }
+            balanceView.setText("Wallet Not Synced");
 
-                rootView.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
-                    @Override
-                    public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
+        }
 
-                        final boolean round = insets.isRound();
-                        Log.d("MainActivity", "Is the screen round: " + round);
-                        return insets;
-                    }
-                });
-
-            }
-        });
-
-        setContentView(stub);
 
         //displaySpeechRecognizer();
     }
@@ -166,6 +146,7 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
     public void onSwipe(int direction) {
         String str = "";
 
+        Log.d("MyActivity", "SWIPE - " + direction);
         switch (direction) {
 
             case SimpleGestureFilter.SWIPE_RIGHT:
@@ -193,6 +174,8 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
 
     private void handleSwipe(int swipeType){
 
+        Log.d("MyActivity", "Current State - " + CURRENT_STATE);
+
         if(CURRENT_STATE == STATE_QR){
             addressImageView.setVisibility(View.GONE);
             balanceView.setVisibility(View.VISIBLE);
@@ -205,7 +188,6 @@ public class MyActivity extends Activity implements SimpleGestureFilter.SimpleGe
             balanceView.setVisibility(View.GONE);
             CURRENT_STATE = STATE_QR;
         }
-
 
     }
 }

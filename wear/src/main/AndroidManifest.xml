@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aegiswallet"
-    android:versionCode="1"
-    android:versionName="1.0.0" >
+    android:versionCode="2"
+    android:versionName="1.1.0" >
 
     <uses-feature android:name="android.hardware.type.watch" />
 
     <uses-permission
         android:name="com.google.android.permission.PROVIDE_BACKGROUND" />
-    <uses-permission
-        android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:name=".application.AegisWearApplication"
@@ -30,21 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.WatchFaceActivity"
-            android:allowEmbedded="true"
-            android:label="Aegis Wallet"
-            android:theme="@android:style/Theme.DeviceDefault.NoActionBar" >
-            <meta-data
-                android:name="com.google.android.clockwork.home.preview"
-                android:resource="@drawable/watchfacenew" />
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.google.android.clockwork.home.category.HOME_BACKGROUND" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".activities.ReceiveBitcoin"
             android:label="@string/receive_bitcoin" />
@@ -65,11 +50,8 @@
                 android:resource="@xml/watch_face" />
             <meta-data
                 android:name="com.google.android.wearable.watchface.preview"
-                android:resource="@drawable/watchfacenew" />
-           <!-- <meta-data
-                android:name="com.google.android.wearable.watchface.preview_circular"
-                android:resource="@drawable/preview_analog_circular" />
-                -->
+                android:resource="@drawable/aegiswatchpreview" />
+
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
                 <category

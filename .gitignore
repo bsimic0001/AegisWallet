@@ -5,3 +5,4 @@
 /build
 /mobile/*.apk
 .idea/
+/.idea/libraries

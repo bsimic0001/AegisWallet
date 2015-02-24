@@ -8,4 +8,17 @@
     <string name="receive_bitcoin">Receive Bitcoin</string>
     <string name="to_the_moon">To The Moon</string>
 
+
+    <plurals name="calendar_meetings">
+        <item quantity="one">&lt;br&gt;&lt;br&gt;&lt;br&gt;You have &lt;b&gt;%1$d&lt;/b&gt; meeting in the next 24 hours.</item>
+        <item quantity="other">&lt;br&gt;&lt;br&gt;&lt;br&gt;You have &lt;b&gt;%1$d&lt;/b&gt; meetings in the next 24 hours.</item>
+    </plurals>
+
+    <string name="digital_name">Sample Digital</string>
+    <string name="digital_background_color">Background color</string>
+    <string name="digital_config_name">Digital watch face configuration</string>
+    <string name="digital_am">AM</string>
+    <string name="digital_pm">PM</string>
+    <string name="calendar_name">Sample Calendar</string>
+
 </resources>

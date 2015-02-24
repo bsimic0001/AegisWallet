@@ -52,8 +52,6 @@ public class WatchFaceActivity extends Activity {
         stub.setRoundLayout(R.layout.round_activity_watch_face);
 
         stub.requestApplyInsets();
-
-
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
             public void onLayoutInflated(final WatchViewStub stub) {

@@ -39,4 +39,7 @@
     <color name="lighter_grey">#cccccc</color>
     <color name="darker_grey">#333333</color>
 
+    <color name="digital_am_pm">#000</color>
+    <color name="digital_colons">#000</color>
+
 </resources>

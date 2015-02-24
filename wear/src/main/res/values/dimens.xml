@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <dimen name="digital_text_size">40dp</dimen>
+    <dimen name="digital_text_size_round">45dp</dimen>
+    <dimen name="digital_am_pm_size">15dp</dimen>
+    <dimen name="digital_am_pm_size_round">20dp</dimen>
+    <dimen name="digital_x_offset">15dp</dimen>
+    <dimen name="digital_x_offset_round">20dp</dimen>
+    <dimen name="digital_y_offset">75dp</dimen>
+    <dimen name="digital_config_color_picker_item_margin">32dp</dimen>
+    <dimen name="content_padding_start">12dp</dimen>
+</resources>

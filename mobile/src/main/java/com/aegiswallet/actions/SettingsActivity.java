@@ -231,7 +231,6 @@ public class SettingsActivity extends Activity implements WalletDecryptedListene
                         intent.putExtra("message", context.getString(R.string.settings_password_changed));
                         startActivity(intent);
                     }
-
                 }
             }
         });

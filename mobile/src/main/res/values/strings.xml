@@ -230,9 +230,9 @@
     <string name="about_text">The mission of the Aegis Bitcoin Wallet is simple.
         It is to make sure that in the event your Android device is lost or stolen, you can have peace of mind that
         your Bitcoins are safe. \r\n\r\nFind out more at <a href="https://aegiswallet.com">https://aegiswallet.com</a>
-        \r\n\r\nThis software was created by the efforts of the <a href="https://bitcoinsecurityproject.org">Bitcoin Security Project</a> and <a href="http://specularx.co/">specularX</a>.
+        \r\n\r\nThis software was created by the efforts of the <a href="https://bitcoinsecurityproject.org">Bitcoin Security Project</a>.
     </string>
-    <string name="license_text">Aegis Bitcoin Wallet - The secure Bitcoin wallet for Android\r\nCopyright (C) 2014  Bojan Simic and specularX.co, Designed by Reuven Yamrom from <a href="http://www.orientmedia.net/">Orientmedia</a>\r\n
+    <string name="license_text">Aegis Bitcoin Wallet - The secure Bitcoin wallet for Android\r\nCopyright (C) 2014  Bojan Simic, Designed by Reuven Yamrom from <a href="http://www.orientmedia.net/">Orientmedia</a>\r\n
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
