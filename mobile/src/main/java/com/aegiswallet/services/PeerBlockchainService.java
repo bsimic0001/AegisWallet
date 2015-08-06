@@ -551,7 +551,10 @@ public class PeerBlockchainService extends android.app.Service {
                 tagPrefs.edit().putString(sendRequest.tx.getHashAsString(), tagExtra).commit();
 
                 sendRequest.ensureMinRequiredFee = false;
+                //sendRequest.fee = BigInteger.valueOf(1000);
                 Transaction transaction = wallet.sendCoinsOffline(sendRequest);
+
+
 
                 if (transaction != null && peerGroup != null) {
                     ListenableFuture<Transaction> future = peerGroup.broadcastTransaction(transaction);

@@ -36,6 +36,7 @@ dependencies {
     compile files('libs/bitcoinj-tools-0.12-SNAPSHOT.jar')
     compile 'com.android.support:support-v4:20.0.0'
     compile 'com.google.android.gms:play-services-wearable:+'
+    compile 'org.joda:joda-money:0.10.0'
     wearApp project(':wear')
     //wearApp files('/Users/HyperCorp/Dropbox/PayBits/WV1/app-release.apk')
 }

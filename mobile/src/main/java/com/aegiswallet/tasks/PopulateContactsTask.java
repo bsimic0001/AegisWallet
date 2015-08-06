@@ -92,14 +92,17 @@ public class PopulateContactsTask extends BaseTask {
                     Map<String, String> NamePhoneType = new HashMap<String, String>();
                     NamePhoneType.put("Name", contactName);
                     NamePhoneType.put("Phone", phoneNumber);
-                    if (numberType.equals("0"))
-                        NamePhoneType.put("Type", "Work");
-                    else if (numberType.equals("1"))
-                        NamePhoneType.put("Type", "Home");
-                    else if (numberType.equals("2"))
-                        NamePhoneType.put("Type", "Mobile");
-                    else
-                        NamePhoneType.put("Type", "Other");
+
+                    if(numberType != null) {
+                        if (numberType.equals("0"))
+                            NamePhoneType.put("Type", "Work");
+                        else if (numberType.equals("1"))
+                            NamePhoneType.put("Type", "Home");
+                        else if (numberType.equals("2"))
+                            NamePhoneType.put("Type", "Mobile");
+                        else
+                            NamePhoneType.put("Type", "Other");
+                    }
                     peopleList.add(NamePhoneType);
                 }
                 phones.close();

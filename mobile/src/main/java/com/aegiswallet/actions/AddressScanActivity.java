@@ -189,8 +189,6 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
         }
 
         result = defaultTagList.toArray(new String[defaultTagList.size()]);
-
-
         return result;
     }
 
@@ -205,19 +203,16 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-
         byte[] result = NfcUtils.getData(intent);
 
         Vibrator v = (Vibrator) this.context.getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(500);
-
         String resultString = null;
 
         if (result != null)
             resultString = new String(result);
 
         String shamirX2Hashed = application.getPrefs().getString(Constants.SHAMIR_X2_HASHED, null);
-
 
         if (resultString != null && shamirX2Hashed.equals(WalletUtils.convertToSha256(resultString))) {
             if (sendCoinsFlag) {
@@ -229,7 +224,6 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
         } else {
             Toast.makeText(context, getString(R.string.nfc_tag_invalid_string), Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void handleButtons() {
@@ -294,8 +288,6 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
 
             @Override
             public void afterTextChanged(Editable editable) {
-
-
 
             }
         });
@@ -374,7 +366,6 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
                 @Override
                 public void onClick(View view) {
                     if (checkAddressAndAmountValid()) {
-
                         if (isSMSTransaction) {
                             sendTextMessage();
                         } else if (nfcEnabled) {
@@ -384,7 +375,6 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
                             application.showPasswordPrompt(context, Constants.ACTION_DECRYPT);
                         }
                     }
-
                 }
             });
 
@@ -470,24 +460,34 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
     private void handleCurrencyChange(int position) {
         String amountString = amountText.getText().toString();
 
+        //Position 0 is Bitcoin
         if (position == 0) {
             try {
-                BigDecimal btcAmountBigInt = new BigDecimal(amountString);
-                amountInCurrency.setText(WalletUtils.getBTCCurrencryValue(getApplicationContext(),
-                        prefs, btcAmountBigInt) + " " + prefs.getString(Constants.CURRENCY_PREF_KEY, null));
 
-                latestSendAmountInSatoshis = BasicUtils.toNanoCoins(btcAmountBigInt.toString(), 0);
+                BigDecimal btcAmountBigDecimal = new BigDecimal(amountString);
+                amountInCurrency.setText(
+                        WalletUtils.getBTCCurrencryValue(getApplicationContext(),
+                        prefs,
+                        btcAmountBigDecimal)
+                        + " " + prefs.getString(Constants.CURRENCY_PREF_KEY, null));
+
+                latestSendAmountInSatoshis = BasicUtils.toNanoCoins(btcAmountBigDecimal.toString(), 0);
+
+                doCheckForLatestSatoshiAmountValid(latestSendAmountInSatoshis);
 
             } catch (NumberFormatException e) {
                 Log.d(TAG, e.getMessage());
             }
-        } else {
+        }
+
+        //This is the user's selected currency
+        else {
             try {
                 BigDecimal testDecimalAmount = new BigDecimal(amountString);
                 BigDecimal oneBTCDecimal = BigDecimal.valueOf(100000000);
                 BigDecimal exchangeRate = WalletUtils.getExchangeRate(context, prefs);
 
-                BigDecimal btcAmountDecimal = testDecimalAmount.multiply(oneBTCDecimal).divide(exchangeRate, 5, RoundingMode.HALF_EVEN);
+                BigDecimal btcAmountDecimal = testDecimalAmount.multiply(oneBTCDecimal).divide(exchangeRate, 8, RoundingMode.HALF_EVEN);
                 BigInteger btcAmountInteger = btcAmountDecimal.toBigInteger();
 
                 if (btcAmountInteger != null) {
@@ -495,11 +495,22 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
                 }
 
                 latestSendAmountInSatoshis = btcAmountInteger;
+                BigInteger walletBalance = wallet.getBalance(Wallet.BalanceType.AVAILABLE);
+
+                if(latestSendAmountInSatoshis.compareTo(walletBalance) == 1){
+                    latestSendAmountInSatoshis = walletBalance.subtract(BigInteger.valueOf(1000));
+                }
+
+                doCheckForLatestSatoshiAmountValid(latestSendAmountInSatoshis);
 
             } catch (NumberFormatException e) {
                 Log.d(TAG, e.getMessage());
             }
         }
+    }
+
+    private void doCheckForLatestSatoshiAmountValid(BigInteger satoshiAmount){
+
     }
 
     private void decodeQRCode() {
@@ -604,7 +615,6 @@ public class AddressScanActivity extends Activity implements PasswordProvidedLis
             boolean addressValueMatches = addressMatcher.matches();
             boolean selectedNumberMatches = numberMatcher.matches();
 
-            //boolean isValidNumber = PhoneNumberUtils.isGlobalPhoneNumber(selectedNumber.replaceAll("[^0-9]","")) || PhoneNumberUtils.isGlobalPhoneNumber(parsedAddressValue);
             boolean isValidNumber = addressValueMatches || selectedNumberMatches;
 
             if (!isValidNumber) {

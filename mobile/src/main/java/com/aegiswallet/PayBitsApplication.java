@@ -61,6 +61,8 @@ import com.google.bitcoin.store.UnreadableWalletException;
 import com.google.bitcoin.store.WalletProtobufSerializer;
 import com.google.bitcoin.wallet.WalletFiles;
 
+import org.joda.money.CurrencyUnit;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -116,7 +118,6 @@ public class PayBitsApplication extends Application {
 
         peopleList = new ArrayList<Map<String, String>>();
         PopulateContactsTask populateContactsTask = new PopulateContactsTask(getApplicationContext(), peopleList);
-        //populateContactsTask.execute();
         populateContactsTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         setKeyDefaults();
 
@@ -128,6 +129,12 @@ public class PayBitsApplication extends Application {
 
         if (null != mGoogleApiClient && !mGoogleApiClient.isConnected()) {
             mGoogleApiClient.connect();
+        }
+
+        try {
+            CurrencyUnit.registerCurrency("BTC", -1, 8, new ArrayList<String>());
+        } catch (IllegalArgumentException ex) {
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -320,7 +327,6 @@ public class PayBitsApplication extends Application {
 
         TextView fileNameView = (TextView) importCompleteDialog.findViewById(R.id.import_prompt_completed_filename_message);
 
-
         if(fileName != null)
             fileNameView.setText(context.getString(R.string.import_completed_start) + " " + fileName);
 
@@ -340,19 +346,12 @@ public class PayBitsApplication extends Application {
         Log.d(TAG, "RESETTING BLOCKCHAIN");
         resetBlockchain();
 
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, MainActivity.class);
-        //PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-
-        Date date = new Date();
-        //alarmManager.set(AlarmManager.RTC_WAKEUP, date.getTime() + 3000, pendingIntent);
 
         if(dialog != null)
             dialog.dismiss();
 
         context.startActivity(intent);
-
-        //android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     public void showNFCPrompt(final Context context){
